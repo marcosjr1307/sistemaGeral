@@ -40,16 +40,17 @@ namespace aula13_banco
             this.lblProf = new System.Windows.Forms.Label();
             this.lblModal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblQtdMax = new System.Windows.Forms.Label();
+            this.txtQtdMaxAlunos = new System.Windows.Forms.TextBox();
             this.Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtQtdMaxAlunos);
+            this.groupBox1.Controls.Add(this.lblQtdMax);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Controls.Add(this.txtHora);
             this.groupBox1.Controls.Add(this.txtDSemana);
@@ -59,16 +60,16 @@ namespace aula13_banco
             this.groupBox1.Controls.Add(this.lblDSemana);
             this.groupBox1.Controls.Add(this.lblProf);
             this.groupBox1.Controls.Add(this.lblModal);
-            this.groupBox1.Location = new System.Drawing.Point(12, 28);
+            this.groupBox1.Location = new System.Drawing.Point(72, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 217);
+            this.groupBox1.Size = new System.Drawing.Size(451, 259);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(52, 173);
+            this.btnCadastrar.Location = new System.Drawing.Point(52, 212);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(380, 23);
             this.btnCadastrar.TabIndex = 8;
@@ -107,7 +108,7 @@ namespace aula13_banco
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(52, 107);
+            this.lblHora.Location = new System.Drawing.Point(31, 107);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(33, 13);
             this.lblHora.TabIndex = 3;
@@ -116,7 +117,7 @@ namespace aula13_banco
             // lblDSemana
             // 
             this.lblDSemana.AutoSize = true;
-            this.lblDSemana.Location = new System.Drawing.Point(52, 76);
+            this.lblDSemana.Location = new System.Drawing.Point(31, 76);
             this.lblDSemana.Name = "lblDSemana";
             this.lblDSemana.Size = new System.Drawing.Size(81, 13);
             this.lblDSemana.TabIndex = 2;
@@ -125,7 +126,7 @@ namespace aula13_banco
             // lblProf
             // 
             this.lblProf.AutoSize = true;
-            this.lblProf.Location = new System.Drawing.Point(52, 50);
+            this.lblProf.Location = new System.Drawing.Point(31, 50);
             this.lblProf.Name = "lblProf";
             this.lblProf.Size = new System.Drawing.Size(54, 13);
             this.lblProf.TabIndex = 1;
@@ -134,7 +135,7 @@ namespace aula13_banco
             // lblModal
             // 
             this.lblModal.AutoSize = true;
-            this.lblModal.Location = new System.Drawing.Point(52, 138);
+            this.lblModal.Location = new System.Drawing.Point(31, 138);
             this.lblModal.Name = "lblModal";
             this.lblModal.Size = new System.Drawing.Size(65, 13);
             this.lblModal.TabIndex = 0;
@@ -142,42 +143,47 @@ namespace aula13_banco
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Modalidade,
-            this.Professor,
-            this.Dia,
-            this.Hora});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 251);
+            this.Modalidade});
+            this.dataGridView1.Location = new System.Drawing.Point(11, 305);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(451, 226);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(568, 226);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // lblQtdMax
+            // 
+            this.lblQtdMax.AutoSize = true;
+            this.lblQtdMax.Location = new System.Drawing.Point(31, 175);
+            this.lblQtdMax.Name = "lblQtdMax";
+            this.lblQtdMax.Size = new System.Drawing.Size(95, 13);
+            this.lblQtdMax.TabIndex = 9;
+            this.lblQtdMax.Text = "Máximo de alunos:";
+            // 
+            // txtQtdMaxAlunos
+            // 
+            this.txtQtdMaxAlunos.Location = new System.Drawing.Point(149, 172);
+            this.txtQtdMaxAlunos.Name = "txtQtdMaxAlunos";
+            this.txtQtdMaxAlunos.Size = new System.Drawing.Size(278, 20);
+            this.txtQtdMaxAlunos.TabIndex = 10;
             // 
             // Modalidade
             // 
             this.Modalidade.HeaderText = "Modalidade";
             this.Modalidade.Name = "Modalidade";
             // 
-            // Professor
-            // 
-            this.Professor.HeaderText = "Professor";
-            this.Professor.Name = "Professor";
-            // 
-            // Dia
-            // 
-            this.Dia.HeaderText = "Dia";
-            this.Dia.Name = "Dia";
-            // 
-            // Hora
-            // 
-            this.Hora.HeaderText = "Hora";
-            this.Hora.Name = "Hora";
-            // 
             // CadastrarTurma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 489);
+            this.ClientSize = new System.Drawing.Size(620, 561);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "CadastrarTurma";
@@ -202,9 +208,8 @@ namespace aula13_banco
         private System.Windows.Forms.Label lblModal;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtQtdMaxAlunos;
+        private System.Windows.Forms.Label lblQtdMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modalidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Professor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
     }
 }

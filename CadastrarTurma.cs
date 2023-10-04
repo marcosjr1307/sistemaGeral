@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,27 +16,47 @@ namespace aula13_banco
         public CadastrarTurma()
         {
             InitializeComponent();
+
+            Modalidade con_mod = new Modalidade();
+            MySqlDataReader r = con_mod.consultarTodasModalidades();
+            while (r.Read())
+            {
+                dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
+            }
+            DAO_Conexao.con.Close();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-            Turma turma = new Turma(txtProf.Text, txtDSemana.Text, txtHora.Text, int.Parse(txtModal.Text));
+            Turma turma = new Turma(txtProf.Text, txtDSemana.Text, txtHora.Text, int.Parse(txtModal.Text), int.Parse(txtQtdMaxAlunos.Text)); 
 
-            if (turma.cadastrarTurma())
+            /*if (turma.cadastrarTurma())
             {
                 txtProf.Text = "";
                 txtDSemana.Text = "";
                 txtHora.Text = "";
                 txtModal.Text = "";
-
+                txtQtdMaxAlunos.Text = "";
                 MessageBox.Show("Cadastro realizado com sucesso!");
             }
 
             else
-                MessageBox.Show("Erro de cadastro!"); 
+                MessageBox.Show("Erro de cadastro!"); */
             
 
+        }
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            txtProf.Text =  dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            /*
+            Modalidade m = new Modalidade(dataGridView1.SelectedRows.ToString());
+            MySqlDataReader r;
+            r = m.consultarModalidade();
+            while (r.Read())
+            {
+                dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
+            }*/
         }
     }
 }

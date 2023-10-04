@@ -11,7 +11,7 @@ namespace aula13_banco
     class Turma
     {
         private string professor, dia_semana, hora;
-        private int modalidade;
+        private int modalidade,qtdMaxAluno;
 
 
         //get and set
@@ -54,16 +54,27 @@ namespace aula13_banco
         {
             this.modalidade = modalidade;
         }
+
+        public int getQtdMaxAluno()
+        {
+            return qtdMaxAluno;
+        }
+
+        public void setQtdMaxAluno(int qtdMaxAluno)
+        {
+            this.qtdMaxAluno = qtdMaxAluno;
+        }
         //fim get and set
 
 
         //construtor
-        public Turma(string professor, string dia_semana, string hora, int modalidade)
+        public Turma(string professor, string dia_semana, string hora, int modalidade, int qtdMaxAluno)
         {
             this.professor = professor;
             this.dia_semana = dia_semana;
             this.hora = hora;
             this.modalidade = modalidade;
+            this.qtdMaxAluno = qtdMaxAluno;
         }
 
         public Turma(int modalidade)
@@ -71,26 +82,27 @@ namespace aula13_banco
             this.modalidade = modalidade;
         }
 
-        public Turma( string dia_semana, int modalidade)
+        public Turma(string dia_semana, int modalidade)
         {
-            this.dia_semana = dia_semana;          
+            this.dia_semana = dia_semana;
             this.modalidade = modalidade;
         }
 
-        public bool cadastrarTurma()
+       /* public bool cadastrarTurma()
         {
             bool ready = false; 
             try 
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand add = MySqlCommand("insert into Estudio_turma (professorTurma, diasemanaTurma, horaTurmar, idModalidade) values ('""') ");
+                MySqlCommand add = MySqlCommand("insert into Estudio_turma (professorTurma, diasemanaTurma, horaTurmar, idModalidade, " +
+                    "nalunosmatriculadosTurma) values ('"+ professor+"','"+dia_semana+"','"+hora+"','") ");
                
 
             }
 
 
             return 
-        }
+        }*/
        // public bool excluirTurma() 
       // public MySqlDataReader consultarTurma()
 

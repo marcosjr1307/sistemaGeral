@@ -109,6 +109,11 @@ namespace aula13_banco
             consultar.Show();
         }
 
-
+        private void cadastrarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastrarTurma cadastar = new CadastrarTurma();
+            cadastar.MdiParent = this;
+            cadastar.Show();
+        }
     }
 }
