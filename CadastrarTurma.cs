@@ -28,27 +28,30 @@ namespace aula13_banco
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            int cod_modal=0;
+            Modalidade con_mod = new Modalidade(txtModal.Text);
+            MySqlDataReader r = con_mod.consultarModalidade();
+            while (r.Read())
+            {
+                cod_modal = int.Parse(r["idEstudio_Modalidade"].ToString());
+            }
+            DAO_Conexao.con.Close();
+            Turma turma = new Turma(txtProf.Text, txtDSemana.Text, txtHora.Text, cod_modal, int.Parse(txtQtdMaxAlunos.Text)); 
 
-            Turma turma = new Turma(txtProf.Text, txtDSemana.Text, txtHora.Text, int.Parse(txtModal.Text), int.Parse(txtQtdMaxAlunos.Text)); 
-
-            /*if (turma.cadastrarTurma())
+            if (turma.cadastrarTurma())
             {
                 txtProf.Text = "";
                 txtDSemana.Text = "";
                 txtHora.Text = "";
-                txtModal.Text = "";
                 txtQtdMaxAlunos.Text = "";
                 MessageBox.Show("Cadastro realizado com sucesso!");
             }
-
             else
-                MessageBox.Show("Erro de cadastro!"); */
-            
-
+                MessageBox.Show("Erro de cadastro!");
         }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            txtProf.Text =  dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txtModal.Text =  dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             /*
             Modalidade m = new Modalidade(dataGridView1.SelectedRows.ToString());
             MySqlDataReader r;

@@ -30,6 +30,8 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@ namespace aula13_banco
             this.txtAluno = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,26 @@ namespace aula13_banco
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Modalidade";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(57, 19);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(68, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Excluído";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(57, 170);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(393, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Consultar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -139,26 +159,6 @@ namespace aula13_banco
             this.comboBox1.Size = new System.Drawing.Size(328, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(57, 170);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(393, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Consultar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(57, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(68, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Excluído";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // ConsultarModalidade
             // 

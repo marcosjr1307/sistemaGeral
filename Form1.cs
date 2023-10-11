@@ -115,5 +115,17 @@ namespace aula13_banco
             cadastar.MdiParent = this;
             cadastar.Show();
         }
+
+        private void consultarModalidadeEAtualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void excluirTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcluirTurma excluir = new ExcluirTurma();
+            excluir.MdiParent = this;
+            excluir.Show();
+        }
     }
 }

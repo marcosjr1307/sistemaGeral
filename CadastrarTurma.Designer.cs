@@ -30,6 +30,8 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtQtdMaxAlunos = new System.Windows.Forms.TextBox();
+            this.lblQtdMax = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.txtDSemana = new System.Windows.Forms.TextBox();
@@ -40,8 +42,6 @@ namespace aula13_banco
             this.lblProf = new System.Windows.Forms.Label();
             this.lblModal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblQtdMax = new System.Windows.Forms.Label();
-            this.txtQtdMaxAlunos = new System.Windows.Forms.TextBox();
             this.Modalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,6 +67,22 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
+            // txtQtdMaxAlunos
+            // 
+            this.txtQtdMaxAlunos.Location = new System.Drawing.Point(149, 172);
+            this.txtQtdMaxAlunos.Name = "txtQtdMaxAlunos";
+            this.txtQtdMaxAlunos.Size = new System.Drawing.Size(278, 20);
+            this.txtQtdMaxAlunos.TabIndex = 10;
+            // 
+            // lblQtdMax
+            // 
+            this.lblQtdMax.AutoSize = true;
+            this.lblQtdMax.Location = new System.Drawing.Point(31, 175);
+            this.lblQtdMax.Name = "lblQtdMax";
+            this.lblQtdMax.Size = new System.Drawing.Size(95, 13);
+            this.lblQtdMax.TabIndex = 9;
+            this.lblQtdMax.Text = "Máximo de alunos:";
+            // 
             // btnCadastrar
             // 
             this.btnCadastrar.Location = new System.Drawing.Point(52, 212);
@@ -79,36 +95,37 @@ namespace aula13_banco
             // 
             // txtHora
             // 
-            this.txtHora.Location = new System.Drawing.Point(149, 104);
+            this.txtHora.Location = new System.Drawing.Point(149, 134);
             this.txtHora.Name = "txtHora";
             this.txtHora.Size = new System.Drawing.Size(283, 20);
             this.txtHora.TabIndex = 7;
             // 
             // txtDSemana
             // 
-            this.txtDSemana.Location = new System.Drawing.Point(149, 69);
+            this.txtDSemana.Location = new System.Drawing.Point(149, 97);
             this.txtDSemana.Name = "txtDSemana";
             this.txtDSemana.Size = new System.Drawing.Size(283, 20);
             this.txtDSemana.TabIndex = 6;
             // 
             // txtProf
             // 
-            this.txtProf.Location = new System.Drawing.Point(149, 43);
+            this.txtProf.Location = new System.Drawing.Point(149, 59);
             this.txtProf.Name = "txtProf";
             this.txtProf.Size = new System.Drawing.Size(283, 20);
             this.txtProf.TabIndex = 5;
             // 
             // txtModal
             // 
-            this.txtModal.Location = new System.Drawing.Point(149, 131);
+            this.txtModal.Location = new System.Drawing.Point(149, 19);
             this.txtModal.Name = "txtModal";
+            this.txtModal.ReadOnly = true;
             this.txtModal.Size = new System.Drawing.Size(283, 20);
             this.txtModal.TabIndex = 4;
             // 
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(31, 107);
+            this.lblHora.Location = new System.Drawing.Point(31, 137);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(33, 13);
             this.lblHora.TabIndex = 3;
@@ -117,7 +134,7 @@ namespace aula13_banco
             // lblDSemana
             // 
             this.lblDSemana.AutoSize = true;
-            this.lblDSemana.Location = new System.Drawing.Point(31, 76);
+            this.lblDSemana.Location = new System.Drawing.Point(31, 97);
             this.lblDSemana.Name = "lblDSemana";
             this.lblDSemana.Size = new System.Drawing.Size(81, 13);
             this.lblDSemana.TabIndex = 2;
@@ -126,7 +143,7 @@ namespace aula13_banco
             // lblProf
             // 
             this.lblProf.AutoSize = true;
-            this.lblProf.Location = new System.Drawing.Point(31, 50);
+            this.lblProf.Location = new System.Drawing.Point(31, 66);
             this.lblProf.Name = "lblProf";
             this.lblProf.Size = new System.Drawing.Size(54, 13);
             this.lblProf.TabIndex = 1;
@@ -135,7 +152,7 @@ namespace aula13_banco
             // lblModal
             // 
             this.lblModal.AutoSize = true;
-            this.lblModal.Location = new System.Drawing.Point(31, 138);
+            this.lblModal.Location = new System.Drawing.Point(31, 22);
             this.lblModal.Name = "lblModal";
             this.lblModal.Size = new System.Drawing.Size(65, 13);
             this.lblModal.TabIndex = 0;
@@ -158,26 +175,11 @@ namespace aula13_banco
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // lblQtdMax
-            // 
-            this.lblQtdMax.AutoSize = true;
-            this.lblQtdMax.Location = new System.Drawing.Point(31, 175);
-            this.lblQtdMax.Name = "lblQtdMax";
-            this.lblQtdMax.Size = new System.Drawing.Size(95, 13);
-            this.lblQtdMax.TabIndex = 9;
-            this.lblQtdMax.Text = "Máximo de alunos:";
-            // 
-            // txtQtdMaxAlunos
-            // 
-            this.txtQtdMaxAlunos.Location = new System.Drawing.Point(149, 172);
-            this.txtQtdMaxAlunos.Name = "txtQtdMaxAlunos";
-            this.txtQtdMaxAlunos.Size = new System.Drawing.Size(278, 20);
-            this.txtQtdMaxAlunos.TabIndex = 10;
-            // 
             // Modalidade
             // 
             this.Modalidade.HeaderText = "Modalidade";
             this.Modalidade.Name = "Modalidade";
+            this.Modalidade.ReadOnly = true;
             // 
             // CadastrarTurma
             // 

@@ -81,6 +81,12 @@
     <Compile Include="ExcluirModalidade.Designer.cs">
       <DependentUpon>ExcluirModalidade.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExcluirTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcluirTurma.Designer.cs">
+      <DependentUpon>ExcluirTurma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExcluirModalidade.resx">
       <DependentUpon>ExcluirModalidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcluirTurma.resx">
+      <DependentUpon>ExcluirTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

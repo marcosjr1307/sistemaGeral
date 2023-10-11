@@ -82,30 +82,86 @@ namespace aula13_banco
             this.modalidade = modalidade;
         }
 
+        public Turma()
+        { 
+        }
+
         public Turma(string dia_semana, int modalidade)
         {
             this.dia_semana = dia_semana;
             this.modalidade = modalidade;
         }
 
-       /* public bool cadastrarTurma()
+       public bool cadastrarTurma()
         {
             bool ready = false; 
             try 
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand add = MySqlCommand("insert into Estudio_turma (professorTurma, diasemanaTurma, horaTurmar, idModalidade, " +
-                    "nalunosmatriculadosTurma) values ('"+ professor+"','"+dia_semana+"','"+hora+"','") ");
-               
-
+                MySqlCommand add = new MySqlCommand("insert into Estudio_turma (idModalidade,professorTurma, diasemanaTurma, horaTurma, nalunosmatriculadosTurma) " +
+                    "values (" + modalidade + ",'" + professor + "','" + dia_semana + "','" + hora + "'," + qtdMaxAluno + ")", DAO_Conexao.con);
+                add.ExecuteNonQuery();
+                ready = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally{
+                DAO_Conexao.con.Close();
             }
 
+            return ready;
+        }
 
-            return 
-        }*/
-       // public bool excluirTurma() 
-      // public MySqlDataReader consultarTurma()
+        public MySqlDataReader consultarTurma01(string nome) //Consulta a semana
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select diasemanaTurma from Estudio_turma inner join " +
+                    "Estudio_modalidade on (Estudio_modalidade.idEstudio_Modalidade = Estudio_turma.idModalidade) " +
+                    "where Estudio_modalidade.descricaoModalidade = '"+nome+"'",DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                //DAO_Conexao.con.Close();
+            }
+            return resultado;
+        }
 
-       //public MySqlDataReader consultarTurma01()
+        public MySqlDataReader consultarTurma02(string nomeM, string sem) //Consulta a hora
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select horaTurma from Estudio_turma inner join Estudio_modalidade " +
+                    "on(Estudio_modalidade.idEstudio_Modalidade=Estudio_turma.idModalidade) where " +
+                    "Estudio_modalidade.descricaoModalidade='"+nomeM+"' and diasemanaTurma='"+sem+"'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                //DAO_Conexao.con.Close();
+            }
+            return resultado;
+        }
+
+
+        // public bool excluirTurma() 
+        // public MySqlDataReader consultarTurma()
+
+        //public MySqlDataReader consultarTurma01()
     }
 }
