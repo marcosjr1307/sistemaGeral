@@ -97,7 +97,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("Select * from Estudio_aluno where CPFAluno='" + cpf + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("Select * from Estudio_aluno where CPFAluno='" + cpf.Replace(",",".") + "'", DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
             }
             catch (Exception ex)
@@ -116,7 +116,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("Select * from Estudio_aluno where CPFAluno='" + cpf + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("Select * from Estudio_aluno where CPFAluno='" + cpf.Replace(",",".") + "'", DAO_Conexao.con);
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 if (resultado.Read()) {
                     existe = true;

@@ -168,6 +168,7 @@ namespace aula13_banco
             this.Controls.Add(this.groupBox1);
             this.Name = "ConsultarModalidade";
             this.Text = "Consultar Modalidade";
+            this.Load += new System.EventHandler(this.ConsultarModalidade_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -114,6 +114,22 @@ namespace aula13_banco
             return ready;
         }
 
+        public MySqlDataReader consultarTurma(int cod) //Consultar por código
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_turma where idEstudio_Turma=" + cod,DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return resultado;
+        }
+
         public MySqlDataReader consultarTurma01(string nome) //Consulta a semana
         {
             MySqlDataReader resultado = null;
@@ -158,10 +174,48 @@ namespace aula13_banco
             return resultado;
         }
 
+        public MySqlDataReader consultarTurma03(string nomeM, string sem, string horaT) //Pega o ID a partir do nome e hora
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select idEstudio_Turma from Estudio_turma inner join Estudio_modalidade " +
+                    "on(Estudio_modalidade.idEstudio_Modalidade=Estudio_turma.idModalidade) where " +
+                    "Estudio_modalidade.descricaoModalidade='" + nomeM + "' and diasemanaTurma='" + sem + "' and horaTurma='"+horaT+"'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                //DAO_Conexao.con.Close();
+            }
+            return resultado;
+        }
 
-        // public bool excluirTurma() 
-        // public MySqlDataReader consultarTurma()
 
-        //public MySqlDataReader consultarTurma01()
+        public bool excluirTurma(int id)
+        {
+            bool ready = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand excluir = new MySqlCommand("delete from Estudio_turma where idEstudio_Turma=" + id,DAO_Conexao.con);
+                excluir.ExecuteNonQuery();
+                ready = true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return ready;
+        } 
     }
 }

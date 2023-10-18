@@ -118,7 +118,23 @@ namespace aula13_banco
         }
 
 
-
+        public MySqlDataReader consultarModalidadesTurma()
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select DISTINCT Estudio_modalidade.descricaoModalidade " +
+                    "from Estudio_modalidade inner join Estudio_turma " +
+                    "on(Estudio_modalidade.idEstudio_Modalidade=Estudio_turma.idModalidade)", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return resultado;
+        }
         public MySqlDataReader consultarTodasModalidades()
         {
             MySqlDataReader resultado = null;

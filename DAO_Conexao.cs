@@ -55,7 +55,6 @@ namespace aula13_banco
                 MySqlDataReader result = seleciona.ExecuteReader();
                 if (result.Read()) {
                     tipo = Convert.ToInt32(result["tipo"].ToString()); 
-
                 }
             }
             catch (Exception ex)

@@ -13,9 +13,28 @@ namespace aula13_banco
 {
     public partial class ConsultarModalidade : Form
     {
-        public ConsultarModalidade()
+        public ConsultarModalidade(int op)
         {
             InitializeComponent();
+            if (op == 1)
+            {
+                this.Text = "Atualizar/Consultar Modalidade";
+                comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                txtPreco.ReadOnly = true;
+                txtAluno.ReadOnly = true;
+                txtAula.ReadOnly = true;
+                checkBox1.Enabled = false;
+            }
+            if (op == 2)
+            {
+                this.Text = "Consultar Modalidade";
+                button1.Visible = false;
+                comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                txtPreco.ReadOnly = true;
+                txtAluno.ReadOnly = true;
+                txtAula.ReadOnly = true;
+                checkBox1.Enabled = false;
+            }
             comboBox1.Items.Clear();
             Modalidade m = new Modalidade();
             MySqlDataReader le = m.consultarTodasModalidades();
@@ -43,6 +62,11 @@ namespace aula13_banco
                 if (m.atualizarModalidade(int.Parse(cod)))
                 {
                     MessageBox.Show("Atualizado!");
+                    comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                    txtPreco.ReadOnly = true;
+                    txtAluno.ReadOnly = true;
+                    txtAula.ReadOnly = true;
+                    checkBox1.Enabled = false;
                     checkBox1.Checked = false;
                     txtPreco.Text = "";
                     txtAluno.Text = "";
@@ -71,7 +95,12 @@ namespace aula13_banco
             MySqlDataReader le = m.consultarModalidade();
             if (le.Read())
             {
-                cod= le["idEstudio_Modalidade"].ToString();
+                comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+                txtPreco.ReadOnly = false;
+                txtAluno.ReadOnly = false;
+                txtAula.ReadOnly = false;
+                checkBox1.Enabled = true;
+                cod = le["idEstudio_Modalidade"].ToString();
                 txtPreco.Text = le["precoModalidade"].ToString();
                 txtAluno.Text = le["qtdeAluno"].ToString();
                 txtAula.Text = le["qtdeAulas"].ToString();
@@ -100,5 +129,9 @@ namespace aula13_banco
             comboBox1.Text = "";
         }
 
+        private void ConsultarModalidade_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

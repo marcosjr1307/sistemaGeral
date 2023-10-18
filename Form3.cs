@@ -15,6 +15,17 @@ namespace aula13_banco
         public Form3()
         {
             InitializeComponent();
+            txtNome.Enabled = false;
+            txtRua.Enabled = false;
+            txtNumero.Enabled = false;
+            txtBairro.Enabled = false;
+            txtComplemento.Enabled = false;
+            txtCep.Enabled = false;
+            txtCidade.Enabled = false;
+            txtEstado.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtEmail.Enabled = false;
+            btnCadastro.Enabled = false;
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -29,29 +40,74 @@ namespace aula13_banco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Aluno aluno = new Aluno(txtCpf.Text.Replace(",", "."), txtNome.Text,txtRua.Text,txtNumero.Text,txtBairro.Text,
-                txtComplemento.Text,txtCep.Text.Replace(",", "."), txtCidade.Text,txtEstado.Text,txtTelefone.Text,txtEmail.Text);
-
-            if (aluno.cadastrarAluno())
+            if ((txtCpf.Text == "") || (txtNome.Text == "") || (txtRua.Text == "") || (txtNumero.Text == "") || (txtBairro.Text == "")
+                || (txtComplemento.Text == "") || (txtCep.Text == "") || (txtCidade.Text == "") || (txtEstado.Text == "")
+                || (txtTelefone.Text == "") || (txtEmail.Text == ""))
             {
-                MessageBox.Show("Cadastro realizado com sucesso!");
+                MessageBox.Show("Preencha todos os campos!");
             }
-            else {
-                MessageBox.Show("Erro no cadastro!");
+            else
+            {
+                Aluno aluno = new Aluno(txtCpf.Text.Replace(",", "."), txtNome.Text, txtRua.Text, txtNumero.Text, txtBairro.Text,
+                    txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text);
+
+                if (aluno.cadastrarAluno())
+                {
+                    MessageBox.Show("Cadastro realizado com sucesso!");
+                    txtCpf.Text = "";
+                    txtNome.Text = "";
+                    txtRua.Text = "";
+                    txtNumero.Text = "";
+                    txtBairro.Text = "";
+                    txtComplemento.Text = "";
+                    txtCep.Text = "";
+                    txtCidade.Text = "";
+                    txtEstado.Text = "";
+                    txtTelefone.Text = "";
+                    txtEmail.Text = "";
+                    btnCadastro.Enabled = false;
+                    txtNome.Enabled = false;
+                    txtRua.Enabled = false;
+                    txtNumero.Enabled = false;
+                    txtBairro.Enabled = false;
+                    txtComplemento.Enabled = false;
+                    txtCep.Enabled = false;
+                    txtCidade.Enabled = false;
+                    txtEstado.Enabled = false;
+                    txtTelefone.Enabled = false;
+                    txtEmail.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Erro no cadastro!");
+                }
             }
         }
 
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Aluno aluno = new Aluno(txtCpf.Text);
 
-            if (e.KeyChar == 13) {
+            if (e.KeyChar == 13)
+            {
+                Aluno aluno = new Aluno(txtCpf.Text);
                 if (aluno.consultarAluno())
                 {
                     MessageBox.Show("Aluno já cadastrado!");
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Aluno não cadastrado!");
+                    txtNome.Enabled = true;
+                    txtRua.Enabled = true;
+                    txtNumero.Enabled = true;
+                    txtBairro.Enabled = true;
+                    txtComplemento.Enabled = true;
+                    txtCep.Enabled = true;
+                    txtCidade.Enabled = true;
+                    txtEstado.Enabled = true;
+                    txtTelefone.Enabled = true;
+                    txtEmail.Enabled = true;
+                    btnCadastro.Enabled = true;
                     txtNome.Focus();
                 }
                 DAO_Conexao.con.Close();

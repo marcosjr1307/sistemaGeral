@@ -16,6 +16,17 @@ namespace aula13_banco
         public Atualizar()
         {
             InitializeComponent();
+            txtNome.Enabled = false;
+            txtRua.Enabled = false;
+            txtNumero.Enabled = false;
+            txtBairro.Enabled = false;
+            txtComplemento.Enabled = false;
+            txtCep.Enabled = false;
+            txtCidade.Enabled = false;
+            txtEstado.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtEmail.Enabled = false;
+            btnAtualizar.Enabled = false;
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -38,6 +49,17 @@ namespace aula13_banco
                 txtTelefone.Text= "";
                 txtEmail.Text= "";
                 txtCpf.Enabled = true;
+                txtNome.Enabled = false;
+                txtRua.Enabled = false;
+                txtNumero.Enabled = false;
+                txtBairro.Enabled = false;
+                txtComplemento.Enabled = false;
+                txtCep.Enabled = false;
+                txtCidade.Enabled = false;
+                txtEstado.Enabled = false;
+                txtTelefone.Enabled = false;
+                txtEmail.Enabled = false;
+                btnAtualizar.Enabled = false;
             }
             else
             {
@@ -66,6 +88,18 @@ namespace aula13_banco
                     txtNumero.Text = r["numeroAluno"].ToString();
                     txtTelefone.Text = r["telefoneAluno"].ToString();
                     txtRua.Text = r["ruaAluno"].ToString();
+                    txtNome.Enabled = true;
+                    txtRua.Enabled = true;
+                    txtNumero.Enabled = true;
+                    txtBairro.Enabled = true;
+                    txtComplemento.Enabled = true;
+                    txtCep.Enabled = true;
+                    txtCidade.Enabled = true;
+                    txtEstado.Enabled = true;
+                    txtTelefone.Enabled = true;
+                    txtEmail.Enabled = true;
+                    btnAtualizar.Enabled = true;
+                    txtNome.Focus();
                 }
                 else
                 {

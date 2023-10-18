@@ -17,6 +17,7 @@ namespace aula13_banco
             InitializeComponent();
             menuStrip1.Enabled = false;
         }
+        int op = -1;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -56,16 +57,22 @@ namespace aula13_banco
                 MessageBox.Show("Usuário ADM");
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
+                ConsultarOuAtualizarTurmaToolStripMenuItem.Text = "Atualizar/Consultar Turma";
+                atualizarOuConsultarModalidadeToolStripMenuItem.Text = "Atualizar/Consultar Modalidade";
+                op = tipo;
             }
             if (tipo == 2) {
                 MessageBox.Show("Usuário Restrito");
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
                 cadastrarAlunoToolStripMenuItem.Enabled = false;
-                atualizarOuConsultarModalidadeToolStripMenuItem.Enabled = false;
                 excluirModalidadeToolStripMenuItem.Enabled = false;
                 cadastrarModalidadeToolStripMenuItem.Enabled = false;
-
+                atualizarOuConsultarModalidadeToolStripMenuItem.Text = "Consultar Modalidade";
+                cadastrarTurmaToolStripMenuItem.Enabled = false;
+                ConsultarOuAtualizarTurmaToolStripMenuItem.Text = "Consultar Turma";
+                excluirTurmaToolStripMenuItem.Enabled = false;
+                op = tipo;
             }
         }
 
@@ -104,7 +111,7 @@ namespace aula13_banco
 
         private void atualizarOuConsultarModalidadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultarModalidade consultar = new ConsultarModalidade();
+            ConsultarModalidade consultar = new ConsultarModalidade(op);
             consultar.MdiParent = this;
             consultar.Show();
         }
@@ -116,16 +123,19 @@ namespace aula13_banco
             cadastar.Show();
         }
 
-        private void consultarModalidadeEAtualizarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void excluirTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExcluirTurma excluir = new ExcluirTurma();
             excluir.MdiParent = this;
             excluir.Show();
+        }
+
+        private void ConsultarOuAtualizarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarOuAtualizarTurma consultar = new ConsultarOuAtualizarTurma(op);
+            consultar.MdiParent = this;
+            consultar.Show();
         }
     }
 }

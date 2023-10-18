@@ -16,6 +16,7 @@ namespace aula13_banco
         public ExcluirModalidade()
         {
             InitializeComponent();
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.Items.Clear();
             Modalidade m = new Modalidade();
             MySqlDataReader le = m.consultarTodasModalidades();

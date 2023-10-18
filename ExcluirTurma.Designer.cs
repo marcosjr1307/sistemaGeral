@@ -30,13 +30,13 @@ namespace aula13_banco
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtModal = new System.Windows.Forms.ComboBox();
-            this.txtSemana = new System.Windows.Forms.ComboBox();
             this.txtHora = new System.Windows.Forms.ComboBox();
+            this.txtSemana = new System.Windows.Forms.ComboBox();
+            this.txtModal = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,50 +56,13 @@ namespace aula13_banco
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
             // 
-            // label1
+            // txtHora
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Modalidade:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 102);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Dia da Semana:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Hora:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(69, 185);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(360, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtModal
-            // 
-            this.txtModal.FormattingEnabled = true;
-            this.txtModal.Location = new System.Drawing.Point(167, 59);
-            this.txtModal.Name = "txtModal";
-            this.txtModal.Size = new System.Drawing.Size(262, 21);
-            this.txtModal.TabIndex = 4;
-            this.txtModal.SelectedIndexChanged += new System.EventHandler(this.txtModal_SelectedIndexChanged);
+            this.txtHora.FormattingEnabled = true;
+            this.txtHora.Location = new System.Drawing.Point(167, 139);
+            this.txtHora.Name = "txtHora";
+            this.txtHora.Size = new System.Drawing.Size(262, 21);
+            this.txtHora.TabIndex = 6;
             // 
             // txtSemana
             // 
@@ -110,13 +73,51 @@ namespace aula13_banco
             this.txtSemana.TabIndex = 5;
             this.txtSemana.SelectedIndexChanged += new System.EventHandler(this.txtSemana_SelectedIndexChanged);
             // 
-            // txtHora
+            // txtModal
             // 
-            this.txtHora.FormattingEnabled = true;
-            this.txtHora.Location = new System.Drawing.Point(167, 139);
-            this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(262, 21);
-            this.txtHora.TabIndex = 6;
+            this.txtModal.FormattingEnabled = true;
+            this.txtModal.Location = new System.Drawing.Point(167, 59);
+            this.txtModal.Name = "txtModal";
+            this.txtModal.Size = new System.Drawing.Size(262, 21);
+            this.txtModal.TabIndex = 4;
+            this.txtModal.SelectedIndexChanged += new System.EventHandler(this.txtModal_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(69, 185);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(360, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Excluir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Hora:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(66, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Dia da Semana:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Modalidade:";
             // 
             // ExcluirTurma
             // 

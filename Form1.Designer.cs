@@ -43,7 +43,7 @@ namespace aula13_banco
             this.atualizarOuConsultarModalidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarModalidadeEAtualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConsultarOuAtualizarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -147,15 +147,14 @@ namespace aula13_banco
             // atualizarOuConsultarModalidadeToolStripMenuItem
             // 
             this.atualizarOuConsultarModalidadeToolStripMenuItem.Name = "atualizarOuConsultarModalidadeToolStripMenuItem";
-            this.atualizarOuConsultarModalidadeToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
-            this.atualizarOuConsultarModalidadeToolStripMenuItem.Text = "Atualizar ou Consultar Modalidade";
+            this.atualizarOuConsultarModalidadeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.atualizarOuConsultarModalidadeToolStripMenuItem.Click += new System.EventHandler(this.atualizarOuConsultarModalidadeToolStripMenuItem_Click);
             // 
             // turmaToolStripMenuItem
             // 
             this.turmaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarTurmaToolStripMenuItem,
-            this.consultarModalidadeEAtualizarToolStripMenuItem,
+            this.ConsultarOuAtualizarTurmaToolStripMenuItem,
             this.excluirTurmaToolStripMenuItem});
             this.turmaToolStripMenuItem.Name = "turmaToolStripMenuItem";
             this.turmaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
@@ -168,12 +167,11 @@ namespace aula13_banco
             this.cadastrarTurmaToolStripMenuItem.Text = "Cadastrar Turma";
             this.cadastrarTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTurmaToolStripMenuItem_Click);
             // 
-            // consultarModalidadeEAtualizarToolStripMenuItem
+            // ConsultarOuAtualizarTurmaToolStripMenuItem
             // 
-            this.consultarModalidadeEAtualizarToolStripMenuItem.Name = "consultarModalidadeEAtualizarToolStripMenuItem";
-            this.consultarModalidadeEAtualizarToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.consultarModalidadeEAtualizarToolStripMenuItem.Text = "Consultar e atualizar Turma";
-            this.consultarModalidadeEAtualizarToolStripMenuItem.Click += new System.EventHandler(this.consultarModalidadeEAtualizarToolStripMenuItem_Click);
+            this.ConsultarOuAtualizarTurmaToolStripMenuItem.Name = "ConsultarOuAtualizarTurmaToolStripMenuItem";
+            this.ConsultarOuAtualizarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ConsultarOuAtualizarTurmaToolStripMenuItem.Click += new System.EventHandler(this.ConsultarOuAtualizarTurmaToolStripMenuItem_Click);
             // 
             // excluirTurmaToolStripMenuItem
             // 
@@ -209,7 +207,6 @@ namespace aula13_banco
             // 
             // textBox2
             // 
-            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(122, 65);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
@@ -219,7 +216,6 @@ namespace aula13_banco
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(122, 39);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -287,7 +283,7 @@ namespace aula13_banco
         private System.Windows.Forms.ToolStripMenuItem atualizarOuConsultarModalidadeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarTurmaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarModalidadeEAtualizarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConsultarOuAtualizarTurmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excluirTurmaToolStripMenuItem;
     }
 }
