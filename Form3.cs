@@ -76,6 +76,7 @@ namespace aula13_banco
                     txtEstado.Enabled = false;
                     txtTelefone.Enabled = false;
                     txtEmail.Enabled = false;
+                    txtCpf.Enabled = true;
                 }
                 else
                 {
@@ -97,6 +98,7 @@ namespace aula13_banco
                 else
                 {
                     MessageBox.Show("Aluno não cadastrado!");
+                    txtCpf.Enabled = false;
                     txtNome.Enabled = true;
                     txtRua.Enabled = true;
                     txtNumero.Enabled = true;

@@ -13,9 +13,11 @@ namespace aula13_banco
 {
     public partial class ConsultarModalidade : Form
     {
+        int opM = -1;
         public ConsultarModalidade(int op)
         {
             InitializeComponent();
+            opM = op;
             if (op == 1)
             {
                 this.Text = "Atualizar/Consultar Modalidade";
@@ -49,6 +51,10 @@ namespace aula13_banco
         {
             if((comboBox1.Text!="") && (txtPreco.Text !="") && (txtAluno.Text!="") && (txtAula.Text!=""))
             {
+                if(opM == 1)
+                {
+                    button2.Enabled = true;
+                }
                 int ativo=0;
                 if (checkBox1.Checked == false)
                 {
@@ -84,49 +90,69 @@ namespace aula13_banco
             }
             else
             {
-                MessageBox.Show("Insira os dados!");
+                MessageBox.Show("Insira/Consulte os dados!");
             }
         }
 
         string cod;
         private void button2_Click(object sender, EventArgs e)
         {
-            Modalidade m = new Modalidade(comboBox1.Text);
-            MySqlDataReader le = m.consultarModalidade();
-            if (le.Read())
+            if (comboBox1.SelectedItem == null)
             {
-                comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
-                txtPreco.ReadOnly = false;
-                txtAluno.ReadOnly = false;
-                txtAula.ReadOnly = false;
-                checkBox1.Enabled = true;
-                cod = le["idEstudio_Modalidade"].ToString();
-                txtPreco.Text = le["precoModalidade"].ToString();
-                txtAluno.Text = le["qtdeAluno"].ToString();
-                txtAula.Text = le["qtdeAulas"].ToString();
-                if (int.Parse(le["ativa"].ToString()) == 1)
-                {
-                    checkBox1.Checked=true;
-                }
-                else
-                {
-                    checkBox1.Checked = false;
-                }
+                MessageBox.Show("Selecione uma modalidade!","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Id não encontrado");
+                Modalidade m = new Modalidade(comboBox1.Text);
+                MySqlDataReader le = m.consultarModalidade();
+                if (le.Read())
+                {
+                    if (opM == 1)
+                    {
+                        comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+                        txtPreco.ReadOnly = false;
+                        txtAluno.ReadOnly = false;
+                        txtAula.ReadOnly = false;
+                        checkBox1.Enabled = true;
+                    }
+                    cod = le["idEstudio_Modalidade"].ToString();
+                    txtPreco.Text = le["precoModalidade"].ToString();
+                    txtAluno.Text = le["qtdeAluno"].ToString();
+                    txtAula.Text = le["qtdeAulas"].ToString();
+                    if (int.Parse(le["ativa"].ToString()) == 1)
+                    {
+                        checkBox1.Checked = true;
+                    }
+                    else
+                    {
+                        checkBox1.Checked = false;
+                    }
+                    if (opM == 1)
+                    {
+                        button2.Enabled = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Id não encontrado");
+                }
+                DAO_Conexao.con.Close();
             }
-            DAO_Conexao.con.Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            button2.Enabled = true;
             checkBox1.Checked = false;
             txtPreco.Text = "";
             txtAluno.Text = "";
             txtAula.Text = "";
             comboBox1.Text = "";
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtPreco.ReadOnly = true;
+            txtAluno.ReadOnly = true;
+            txtAula.ReadOnly = true;
+            checkBox1.Enabled = false;
         }
 
         private void ConsultarModalidade_Load(object sender, EventArgs e)

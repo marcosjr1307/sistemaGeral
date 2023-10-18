@@ -77,7 +77,6 @@ namespace aula13_banco
                 if (r.Read())
                 {
                     MessageBox.Show("Aluno encontrado!");
-                    txtCpf.Enabled = false;
                     txtNome.Text = r["nomeAluno"].ToString();
                     txtComplemento.Text = r["complementoAluno"].ToString();
                     txtBairro.Text = r["bairroAluno"].ToString();
@@ -88,18 +87,22 @@ namespace aula13_banco
                     txtNumero.Text = r["numeroAluno"].ToString();
                     txtTelefone.Text = r["telefoneAluno"].ToString();
                     txtRua.Text = r["ruaAluno"].ToString();
-                    txtNome.Enabled = true;
-                    txtRua.Enabled = true;
-                    txtNumero.Enabled = true;
-                    txtBairro.Enabled = true;
-                    txtComplemento.Enabled = true;
-                    txtCep.Enabled = true;
-                    txtCidade.Enabled = true;
-                    txtEstado.Enabled = true;
-                    txtTelefone.Enabled = true;
-                    txtEmail.Enabled = true;
-                    btnAtualizar.Enabled = true;
-                    txtNome.Focus();
+                    if (MessageBox.Show("Você deseja atualizar os dados do aluno?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        txtCpf.Enabled = false;
+                        txtNome.Enabled = true;
+                        txtRua.Enabled = true;
+                        txtNumero.Enabled = true;
+                        txtBairro.Enabled = true;
+                        txtComplemento.Enabled = true;
+                        txtCep.Enabled = true;
+                        txtCidade.Enabled = true;
+                        txtEstado.Enabled = true;
+                        txtTelefone.Enabled = true;
+                        txtEmail.Enabled = true;
+                        btnAtualizar.Enabled = true;
+                        txtNome.Focus();
+                    }
                 }
                 else
                 {
@@ -108,6 +111,20 @@ namespace aula13_banco
                 DAO_Conexao.con.Close();
             }
              
+        }
+
+        private void txtCpf_TextChanged(object sender, EventArgs e)
+        {
+            txtNome.Text = "";
+            txtRua.Text = "";
+            txtNumero.Text = "";
+            txtBairro.Text = "";
+            txtComplemento.Text = "";
+            txtCep.Text = "";
+            txtCidade.Text = "";
+            txtEstado.Text = "";
+            txtTelefone.Text = "";
+            txtEmail.Text = "";
         }
     }
 }
