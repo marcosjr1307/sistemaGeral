@@ -1,7 +1,7 @@
 ﻿
 namespace aula13_banco
 {
-    partial class ConsultarOuAtualizarTurma
+    partial class AtualizarTurma
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,13 @@ namespace aula13_banco
         {
             this.SuspendLayout();
             // 
-            // ConsultarOuAtualizarTurma
+            // AtualizarTurma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ConsultarOuAtualizarTurma";
-            this.Text = "ConsultarOuAtualizarTurma";
-            this.Load += new System.EventHandler(this.ConsultarOuAtualizarTurma_Load);
+            this.Name = "AtualizarTurma";
+            this.Text = "Atualizar Turma";
             this.ResumeLayout(false);
 
         }

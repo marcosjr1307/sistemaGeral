@@ -56,6 +56,12 @@
     <Compile Include="Atualizar.Designer.cs">
       <DependentUpon>Atualizar.cs</DependentUpon>
     </Compile>
+    <Compile Include="AtualizarTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AtualizarTurma.Designer.cs">
+      <DependentUpon>AtualizarTurma.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarModalidade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,11 +74,11 @@
     <Compile Include="ConsultarModalidade.Designer.cs">
       <DependentUpon>ConsultarModalidade.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarOuAtualizarTurma.cs">
+    <Compile Include="ConsultarTurma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultarOuAtualizarTurma.Designer.cs">
-      <DependentUpon>ConsultarOuAtualizarTurma.cs</DependentUpon>
+    <Compile Include="ConsultarTurma.Designer.cs">
+      <DependentUpon>ConsultarTurma.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO_Conexao.cs" />
     <Compile Include="Excluir.cs">
@@ -124,14 +130,17 @@
     <EmbeddedResource Include="Atualizar.resx">
       <DependentUpon>Atualizar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AtualizarTurma.resx">
+      <DependentUpon>AtualizarTurma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarModalidade.resx">
       <DependentUpon>CadastrarModalidade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarModalidade.resx">
       <DependentUpon>ConsultarModalidade.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultarOuAtualizarTurma.resx">
-      <DependentUpon>ConsultarOuAtualizarTurma.cs</DependentUpon>
+    <EmbeddedResource Include="ConsultarTurma.resx">
+      <DependentUpon>ConsultarTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Excluir.resx">
       <DependentUpon>Excluir.cs</DependentUpon>

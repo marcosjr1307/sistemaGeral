@@ -27,12 +27,23 @@ namespace aula13_banco
             txtTelefone.Enabled = false;
             txtEmail.Enabled = false;
             btnAtualizar.Enabled = false;
+            checkBox1.Enabled = false;
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            int ativo = -1;
+            if (checkBox1.Checked == false)
+            {
+                ativo = 0;
+            }
+            else
+            {
+                ativo = 1;
+            }
+
             Aluno aluno = new Aluno(txtCpf.Text.Replace(",", "."), txtNome.Text, txtRua.Text, txtNumero.Text, txtBairro.Text,
-                txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text);
+                txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text, ativo);
 
             if (aluno.atualizarAluno())
             {
@@ -60,6 +71,7 @@ namespace aula13_banco
                 txtTelefone.Enabled = false;
                 txtEmail.Enabled = false;
                 btnAtualizar.Enabled = false;
+                checkBox1.Enabled = false;
             }
             else
             {
@@ -87,6 +99,14 @@ namespace aula13_banco
                     txtNumero.Text = r["numeroAluno"].ToString();
                     txtTelefone.Text = r["telefoneAluno"].ToString();
                     txtRua.Text = r["ruaAluno"].ToString();
+                    if (int.Parse(r["ativo"].ToString()) == 1)
+                    {
+                        checkBox1.Checked = true;
+                    }
+                    else
+                    {
+                        checkBox1.Checked = false;
+                    }
                     if (MessageBox.Show("Você deseja atualizar os dados do aluno?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         txtCpf.Enabled = false;
@@ -101,6 +121,7 @@ namespace aula13_banco
                         txtTelefone.Enabled = true;
                         txtEmail.Enabled = true;
                         btnAtualizar.Enabled = true;
+                        checkBox1.Enabled = true;
                         txtNome.Focus();
                     }
                 }
@@ -125,6 +146,7 @@ namespace aula13_banco
             txtEstado.Text = "";
             txtTelefone.Text = "";
             txtEmail.Text = "";
+            checkBox1.Checked = false;
         }
     }
 }

@@ -57,7 +57,6 @@ namespace aula13_banco
                 MessageBox.Show("Usuário ADM");
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
-                ConsultarOuAtualizarTurmaToolStripMenuItem.Text = "Atualizar/Consultar Turma";
                 atualizarOuConsultarModalidadeToolStripMenuItem.Text = "Atualizar/Consultar Modalidade";
                 op = tipo;
             }
@@ -70,8 +69,8 @@ namespace aula13_banco
                 cadastrarModalidadeToolStripMenuItem.Enabled = false;
                 atualizarOuConsultarModalidadeToolStripMenuItem.Text = "Consultar Modalidade";
                 cadastrarTurmaToolStripMenuItem.Enabled = false;
-                ConsultarOuAtualizarTurmaToolStripMenuItem.Text = "Consultar Turma";
                 excluirTurmaToolStripMenuItem.Enabled = false;
+                atualizarTurmaToolStripMenuItem.Enabled = false;
                 op = tipo;
             }
         }
@@ -131,11 +130,18 @@ namespace aula13_banco
             excluir.Show();
         }
 
-        private void ConsultarOuAtualizarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConsultarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultarOuAtualizarTurma consultar = new ConsultarOuAtualizarTurma(op);
+            ConsultarTurma consultar = new ConsultarTurma();
             consultar.MdiParent = this;
             consultar.Show();
+        }
+
+        private void atualizarTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AtualizarTurma atualizar = new AtualizarTurma();
+            atualizar.MdiParent = this;
+            atualizar.Show();
         }
     }
 }

@@ -196,6 +196,24 @@ namespace aula13_banco
             return resultado;
         }
 
+        public MySqlDataReader consultarTurma04(int id) //Pega a quantidade de turmas daquela modalidade
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select idEstudio_Turma from Estudio_turma inner join Estudio_modalidade " +
+                    "on(Estudio_modalidade.idEstudio_Modalidade=Estudio_turma.idModalidade) " +
+                    "where Estudio_modalidade.idEstudio_Modalidade="+id, DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultado;
+        }
+
 
         public bool excluirTurma(int id)
         {
@@ -203,7 +221,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand excluir = new MySqlCommand("delete from Estudio_turma where idEstudio_Turma=" + id,DAO_Conexao.con);
+                MySqlCommand excluir = new MySqlCommand("update Estudio_turma set ativo = 1 where idEstudio_Turma=" + id,DAO_Conexao.con);
                 excluir.ExecuteNonQuery();
                 ready = true;
             }
@@ -216,6 +234,27 @@ namespace aula13_banco
                 DAO_Conexao.con.Close();
             }
             return ready;
-        } 
+        }
+
+        public bool excluirTurma01(int id) //Exluir a partir da modalidade
+        {
+            bool ready = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand excluir = new MySqlCommand("update Estudio_turma set ativo = 1 where idEstudio_Turma=" + id, DAO_Conexao.con);
+                excluir.ExecuteNonQuery();
+                ready = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return ready;
+        }
     }
 }

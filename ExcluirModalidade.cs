@@ -39,7 +39,6 @@ namespace aula13_banco
         private void button1_Click(object sender, EventArgs e)
         {
             int id=0;
-            Console.WriteLine(comboBox1.Text);
             Modalidade m = new Modalidade(comboBox1.Text);
             MySqlDataReader le = m.consultarModalidade();
             if (le.Read())
@@ -55,6 +54,19 @@ namespace aula13_banco
             {
                 if (m.excluirModalidade(id))
                 {
+                    Turma t = new Turma();
+                    int codTurma = 0;
+                    MySqlDataReader qtd = t.consultarTurma04(id);
+                    List<int> vet = new List<int>();
+                    while (qtd.Read())
+                    {
+                        vet.Add(int.Parse(qtd["idEstudio_Turma"].ToString()));
+                    }
+                    DAO_Conexao.con.Close();
+                    for(int i=0; i < vet.Count(); i++)
+                    {
+                        t.excluirTurma01(vet[i]);
+                    }
                     comboBox1.Text = "";
                     MessageBox.Show("Excluído com sucesso");
                     comboBox1.Items.Clear();

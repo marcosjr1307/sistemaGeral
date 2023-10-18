@@ -220,5 +220,28 @@ namespace aula13_banco
             }
             return exc;
         }
+
+        public bool excluirModalidadeTurma(int id)
+        {
+            bool exc = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand exclui = new MySqlCommand("update Estudio_modalidade set ativa = 1 where idEstudio_Modalidade = '" + id + "'", DAO_Conexao.con);
+                exclui.ExecuteNonQuery();
+                exc = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return exc;
+        }
+
+
     }
 }
