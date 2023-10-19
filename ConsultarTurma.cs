@@ -55,12 +55,12 @@ namespace aula13_banco
                 dataGridView1.Rows[i].Cells[j].Value = le["nalunosmatriculadosTurma"].ToString();
                 j++;
                 if (int.Parse(le["ativo"].ToString()) == 1)
-                {
-                    dataGridView1.Rows[i].Cells[j].Value = "Não ativo";
+                { 
+                    dataGridView1.Rows[i].Cells[j].Value = true;
                 }
                 else
                 {
-                    dataGridView1.Rows[i].Cells[j].Value = "Ativo";
+                    dataGridView1.Rows[i].Cells[j].Value = false;
                 }
             }
             DAO_Conexao.con.Close();

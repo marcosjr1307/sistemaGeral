@@ -37,7 +37,7 @@ namespace aula13_banco
             this.DiaSemana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtdAlunos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Excluído = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.teste = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,14 +60,13 @@ namespace aula13_banco
             this.DiaSemana,
             this.Hora,
             this.QtdAlunos,
-            this.Excluído});
+            this.teste});
             this.dataGridView1.Location = new System.Drawing.Point(89, 101);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(543, 213);
             this.dataGridView1.TabIndex = 24;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // txtModal
             // 
@@ -108,14 +107,12 @@ namespace aula13_banco
             this.QtdAlunos.HeaderText = "Qtd Alunos";
             this.QtdAlunos.Name = "QtdAlunos";
             // 
-            // Excluído
+            // teste
             // 
-            this.Excluído.FalseValue = "";
-            this.Excluído.HeaderText = "Excluído";
-            this.Excluído.Name = "Excluído";
-            this.Excluído.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Excluído.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Excluído.TrueValue = "";
+            this.teste.HeaderText = "Excluído";
+            this.teste.Name = "teste";
+            this.teste.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.teste.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // AtualizarTurma
             // 
@@ -144,6 +141,6 @@ namespace aula13_banco
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaSemana;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtdAlunos;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Excluído;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn teste;
     }
 }

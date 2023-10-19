@@ -54,11 +54,11 @@ namespace aula13_banco
                 j++;
                 if (int.Parse(le["ativo"].ToString()) == 1)
                 {
-                    dataGridView1.Rows[i].Cells[j].Value = true;
+                   dataGridView1.Rows[i].Cells[j].Value = true;
                 }
                 else
                 {
-                    dataGridView1.Rows[i].Cells[j].Value = false;
+                   dataGridView1.Rows[i].Cells[j].Value = false;
                 }
             }
             DAO_Conexao.con.Close();
@@ -67,11 +67,9 @@ namespace aula13_banco
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            if (txtModal.Text != "")
+            if ((txtModal.Text != "") && (dataGridView1.Rows.Count!=0))
             {
                 int linhas = dataGridView1.Rows.Count;
-                Console.WriteLine("Linhas");
-                Console.WriteLine(linhas);
                 int j = -1;
                 for (int i = 0; i < linhas; i++)
                 {
@@ -86,29 +84,26 @@ namespace aula13_banco
                     string qtdAluno = dataGridView1.Rows[i].Cells[j].Value.ToString();
                     j++;
                     int ativo;
-                    if (dataGridView1.Rows[i].Cells[j].Value.ToString() == "Ativo")
+                    bool chk=false;
+                    chk = (Boolean)dataGridView1.Rows[i].Cells[j].Value;
+                    if (chk==true)
                     {
-                        ativo = 0;
+                        ativo = 1;
                     }
                     else
                     {
-                        ativo = 1;
+                        ativo = 0;
                     }
                     Turma t2 = new Turma(prof, sem, hora, qtdAluno, ativo);
                     t2.atualizarTurma(vetCods[i]);
                 }
                 dataGridView1.Rows.Clear();
-                MessageBox.Show("Atualizado!");
+                MessageBox.Show("Atualizado!","Confirmado",MessageBoxButtons.OK);
             }
             else
             {
                 MessageBox.Show("Selecione uma modalidade", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-        }
-
     }
 }
