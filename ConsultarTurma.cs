@@ -33,39 +33,37 @@ namespace aula13_banco
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtModal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
+            dataGridView1.Rows.Clear();
             Turma t = new Turma();
-            MySqlDataReader le = t.consultarTurma01(txtModal.Text);
+            MySqlDataReader le = t.consultarTurma05(txtModal.Text);
+            int i=-1;
+            int j=-1;
             while (le.Read())
             {
-                listBox1.Items.Add(le["diasemanaTurma"].ToString());
+                dataGridView1.Rows.Add();
+                j = -1;
+                i++;
+                j++;
+                dataGridView1.Rows[i].Cells[j].Value = le["professorTurma"].ToString();
+                j++;
+                dataGridView1.Rows[i].Cells[j].Value = le["diasemanaTurma"].ToString();
+                j++;
+                dataGridView1.Rows[i].Cells[j].Value = le["horaTurma"].ToString();
+                j++;
+                dataGridView1.Rows[i].Cells[j].Value = le["nalunosmatriculadosTurma"].ToString();
+                j++;
+                if (int.Parse(le["ativo"].ToString()) == 1)
+                {
+                    dataGridView1.Rows[i].Cells[j].Value = "Não ativo";
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells[j].Value = "Ativo";
+                }
             }
             DAO_Conexao.con.Close();
-
-        }
-
-        private void listBox1_Click(object sender, EventArgs e)
-        {
-            listBox2.Items.Clear();
-            Turma t = new Turma();
-            MySqlDataReader le = t.consultarTurma02(txtModal.Text, listBox1.SelectedItem.ToString());
-            while (le.Read())
-            {
-                listBox2.Items.Add(le["horaTurma"].ToString());
-            }
-            DAO_Conexao.con.Close();
-        }
-
-        private void listBox2_Click(object sender, EventArgs e)
-        {
 
         }
     }

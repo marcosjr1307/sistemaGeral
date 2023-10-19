@@ -11,10 +11,20 @@ namespace aula13_banco
     class Turma
     {
         private string professor, dia_semana, hora;
-        private int modalidade,qtdMaxAluno;
+        private int modalidade,qtdMaxAluno,ativo;
 
 
         //get and set
+        public int getAtivo()
+        {
+            return ativo;
+        }
+
+        public void setAtivo(int ativo)
+        {
+            this.ativo = ativo;
+        }
+
         public string getProfessor()
         {
             return professor;
@@ -92,7 +102,16 @@ namespace aula13_banco
             this.modalidade = modalidade;
         }
 
-       public bool cadastrarTurma()
+        public Turma(string professor, string dia_semana, string hora, string qtdMaxAluno, int ativo)
+        {
+            this.professor = professor;
+            this.dia_semana = dia_semana;
+            this.hora = hora;
+            this.qtdMaxAluno = int.Parse(qtdMaxAluno);
+            this.ativo = ativo;
+        }
+
+        public bool cadastrarTurma()
         {
             bool ready = false; 
             try 
@@ -174,7 +193,7 @@ namespace aula13_banco
             return resultado;
         }
 
-        public MySqlDataReader consultarTurma03(string nomeM, string sem, string horaT) //Pega o ID a partir do nome e hora
+        public MySqlDataReader consultarTurma03(string nomeM, string sem, string horaT) //Pega o ID a partir do nome, dia semana e hora
         {
             MySqlDataReader resultado = null;
             try
@@ -214,6 +233,45 @@ namespace aula13_banco
             return resultado;
         }
 
+        public MySqlDataReader consultarTurma05(string descM) //Seleciona as turmas daquela modalidade
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_turma inner " +
+                    "join Estudio_modalidade on (Estudio_modalidade.idEstudio_Modalidade " +
+                    "= Estudio_turma.idModalidade) where " +
+                    "Estudio_modalidade.descricaoModalidade='" + descM+"'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultado;
+        }
+
+        public MySqlDataReader consultarTurma06(int cod, string sem, string horaT) //Pega o ID a partir do , dia semana e hora
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select idEstudio_Turma from Estudio_turma where idModalidade ="+cod+" and diasemanaTurma = '"+sem+"' and horaTurma = '"+horaT+"'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                //DAO_Conexao.con.Close();
+            }
+            return resultado;
+        }
+
 
         public bool excluirTurma(int id)
         {
@@ -247,6 +305,30 @@ namespace aula13_banco
                 ready = true;
             }
             catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return ready;
+        }
+
+        public bool atualizarTurma(int id) //Código da turma
+        {
+            bool ready = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand atualizar = new MySqlCommand("update Estudio_turma set " +
+                    "professorTurma='" + professor + "', diasemana" +
+                    "Turma='"+dia_semana+"', horaTurma='"+hora+"', nalunosmatriculados" +
+                    "Turma="+qtdMaxAluno+", ativo="+ativo+" where idEstudio_Turma="+id, DAO_Conexao.con);
+                atualizar.ExecuteNonQuery();
+                ready = true;
+            }
+            catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
             }

@@ -61,5 +61,6 @@ namespace aula13_banco
                 dataGridView1.Rows.Add(r["descricaoModalidade"].ToString());
             }*/
         }
+
     }
 }
