@@ -24,20 +24,27 @@ namespace aula13_banco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int tipo = 0;
-            if (comboBox1.SelectedIndex == 0)
-                tipo = 1; //adm
-            else if (comboBox1.SelectedIndex == 1)
-                tipo = 2; //restrito
-            if (DAO_Conexao.CadLogin(textBox1.Text, textBox2.Text, tipo))
+            if ((textBox1.Text == "") || (textBox2.Text == "") || (comboBox1.Text == ""))
             {
-                MessageBox.Show("Cadastro realizado com sucesso!", "Cadastrado", MessageBoxButtons.OK);
-                textBox1.Text = "";
-                textBox2.Text = "";
-                comboBox1.Text = "";
+                MessageBox.Show("Preencha todos os campos!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show("Erro de cadastro!");
+            {
+                int tipo = 0;
+                if (comboBox1.SelectedIndex == 0)
+                    tipo = 1; //adm
+                else if (comboBox1.SelectedIndex == 1)
+                    tipo = 2; //restrito
+                if (DAO_Conexao.CadLogin(textBox1.Text, textBox2.Text, tipo))
+                {
+                    MessageBox.Show("Cadastro realizado com sucesso!", "Cadastrado", MessageBoxButtons.OK);
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    comboBox1.Text = "";
+                }
+                else
+                    MessageBox.Show("Erro de cadastro, usuário já cadastrado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

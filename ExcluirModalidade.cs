@@ -47,7 +47,7 @@ namespace aula13_banco
             }
             else
             {
-                MessageBox.Show("Id não encontrado");
+                MessageBox.Show("Id não encontrado", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             DAO_Conexao.con.Close();
             if (comboBox1.Text != "")
@@ -68,7 +68,7 @@ namespace aula13_banco
                         t.excluirTurma01(vet[i]);
                     }
                     comboBox1.Text = "";
-                    MessageBox.Show("Excluído com sucesso");
+                    MessageBox.Show("Excluído com sucesso", "Sucesso!", MessageBoxButtons.OK);
                     comboBox1.Items.Clear();
                     Modalidade m2 = new Modalidade();
                     MySqlDataReader le2 = m2.consultarTodasModalidades();
@@ -83,7 +83,7 @@ namespace aula13_banco
                 }
                 else
                 {
-                    MessageBox.Show("Erro!!");
+                    MessageBox.Show("Erro!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             

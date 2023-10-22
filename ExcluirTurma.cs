@@ -25,6 +25,10 @@ namespace aula13_banco
             MySqlDataReader le = m.consultarModalidadesTurma();
             while (le.Read())
             {
+                if(int.Parse(le["ativa"].ToString()) == 1)
+                {
+                    continue;
+                }
                 txtModal.Items.Add(le["descricaoModalidade"].ToString());
             }
             DAO_Conexao.con.Close();
@@ -45,6 +49,10 @@ namespace aula13_banco
             MySqlDataReader le = t.consultarTurma01(txtModal.Text);
             while (le.Read())
             {
+                if (int.Parse(le["ativo"].ToString()) == 1)
+                {
+                    continue;
+                }
                 txtSemana.Items.Add(le["diasemanaTurma"].ToString());
             }
             DAO_Conexao.con.Close();
@@ -58,6 +66,10 @@ namespace aula13_banco
             MySqlDataReader le = t.consultarTurma02(txtModal.Text, txtSemana.Text);
             while (le.Read())
             {
+                if(int.Parse(le["ativo"].ToString())==1)
+                {
+                    continue;
+                }
                 txtHora.Items.Add(le["horaTurma"].ToString());
             }
             DAO_Conexao.con.Close();
@@ -67,7 +79,7 @@ namespace aula13_banco
         {
             if((txtModal.Text=="") || (txtSemana.Text=="") || (txtHora.Text==""))
             {
-                MessageBox.Show("Selecione todos os campos!");
+                MessageBox.Show("Selecione todos os campos!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -87,11 +99,11 @@ namespace aula13_banco
                         "\nHora: " + objeto["horaTurma"].ToString();
                 }
                 DAO_Conexao.con.Close();
-                if(MessageBox.Show("Você tem certeza que deseja apagar a seguinte turma?\n"+obj,"Atenção",MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if(MessageBox.Show("Você tem certeza que deseja apagar a seguinte turma?\n"+obj,"Atenção",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (t.excluirTurma(cod))
                     {
-                        MessageBox.Show("Turma excluída com sucesso!");
+                        MessageBox.Show("Turma excluída com sucesso!", "Sucesso!", MessageBoxButtons.OK);
                         txtModal.Items.Clear();
                         txtSemana.Items.Clear();
                         txtHora.Items.Clear();
@@ -109,7 +121,7 @@ namespace aula13_banco
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao excluir aluno!");
+                        MessageBox.Show("Erro ao excluir aluno!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

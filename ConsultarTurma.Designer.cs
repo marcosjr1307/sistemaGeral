@@ -31,12 +31,12 @@ namespace aula13_banco
         {
             this.txtModal = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.Professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaSemana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtdAlunos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,9 +63,42 @@ namespace aula13_banco
             this.dataGridView1.Location = new System.Drawing.Point(111, 134);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(543, 213);
             this.dataGridView1.TabIndex = 21;
+            // 
+            // Professor
+            // 
+            this.Professor.HeaderText = "Professor";
+            this.Professor.Name = "Professor";
+            this.Professor.ReadOnly = true;
+            // 
+            // DiaSemana
+            // 
+            this.DiaSemana.HeaderText = "Dia da Semana";
+            this.DiaSemana.Name = "DiaSemana";
+            this.DiaSemana.ReadOnly = true;
+            // 
+            // Hora
+            // 
+            this.Hora.HeaderText = "Hora";
+            this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
+            // 
+            // QtdAlunos
+            // 
+            this.QtdAlunos.HeaderText = "Qtd Alunos";
+            this.QtdAlunos.Name = "QtdAlunos";
+            this.QtdAlunos.ReadOnly = true;
+            // 
+            // Ativo
+            // 
+            this.Ativo.HeaderText = "Excluído";
+            this.Ativo.Name = "Ativo";
+            this.Ativo.ReadOnly = true;
+            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // label1
             // 
@@ -75,34 +108,6 @@ namespace aula13_banco
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 22;
             this.label1.Text = "Modalidade:";
-            // 
-            // Professor
-            // 
-            this.Professor.HeaderText = "Professor";
-            this.Professor.Name = "Professor";
-            // 
-            // DiaSemana
-            // 
-            this.DiaSemana.HeaderText = "Dia da Semana";
-            this.DiaSemana.Name = "DiaSemana";
-            // 
-            // Hora
-            // 
-            this.Hora.HeaderText = "Hora";
-            this.Hora.Name = "Hora";
-            // 
-            // QtdAlunos
-            // 
-            this.QtdAlunos.HeaderText = "Qtd Alunos";
-            this.QtdAlunos.Name = "QtdAlunos";
-            // 
-            // Ativo
-            // 
-            this.Ativo.HeaderText = "Excluído";
-            this.Ativo.Name = "Ativo";
-            this.Ativo.ReadOnly = true;
-            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ConsultarTurma
             // 

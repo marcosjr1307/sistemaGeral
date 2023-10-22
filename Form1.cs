@@ -51,17 +51,27 @@ namespace aula13_banco
         {
             int tipo = DAO_Conexao.VerificaLogin(textBox1.Text, textBox2.Text);
             if (tipo == 0)
-                MessageBox.Show("Usuário/Senha inválidos");
+                MessageBox.Show("Usuário/Senha inválidos", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (tipo == 1)
             {
-                MessageBox.Show("Usuário ADM");
+                label3.Visible = false;
+                radioButton1.Visible = false;
+                radioButton2.Visible = false;
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = false;
+                this.Text = "Estúdio - ADM";
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
                 atualizarOuConsultarModalidadeToolStripMenuItem.Text = "Atualizar/Consultar Modalidade";
                 op = tipo;
             }
             if (tipo == 2) {
-                MessageBox.Show("Usuário Restrito");
+                label3.Visible = false;
+                radioButton1.Visible = false;
+                radioButton2.Visible = false;
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = false;
+                this.Text = "Estúdio - RESTRITO";
                 groupBox1.Visible = false;
                 menuStrip1.Enabled = true;
                 cadastrarAlunoToolStripMenuItem.Enabled = false;
@@ -142,6 +152,18 @@ namespace aula13_banco
             AtualizarTurma atualizar = new AtualizarTurma();
             atualizar.MdiParent = this;
             atualizar.Show();
+        }
+
+        private void radioButton1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "marcos";
+            textBox2.Text = "marcos";
+        }
+
+        private void radioButton2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "restrito";
+            textBox2.Text = "restrito";
         }
     }
 }

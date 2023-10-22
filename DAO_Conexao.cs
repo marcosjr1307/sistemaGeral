@@ -22,6 +22,7 @@ namespace aula13_banco
 
             catch (Exception e)
             {
+                
                 Console.WriteLine(e.Message);
             }
 

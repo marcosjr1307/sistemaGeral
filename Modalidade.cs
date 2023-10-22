@@ -124,7 +124,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select DISTINCT Estudio_modalidade.descricaoModalidade " +
+                MySqlCommand consulta = new MySqlCommand("select DISTINCT Estudio_modalidade.descricaoModalidade, ativa " +
                     "from Estudio_modalidade inner join Estudio_turma " +
                     "on(Estudio_modalidade.idEstudio_Modalidade=Estudio_turma.idModalidade)", DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();

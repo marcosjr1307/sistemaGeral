@@ -67,7 +67,7 @@ namespace aula13_banco
                 Modalidade m = new Modalidade(comboBox1.Text, float.Parse(txtPreco.Text), int.Parse(txtAluno.Text), int.Parse(txtAula.Text),ativo);
                 if (m.atualizarModalidade(int.Parse(cod)))
                 {
-                    MessageBox.Show("Atualizado!");
+                    MessageBox.Show("Atualizado!","Sucesso",MessageBoxButtons.OK);
                     comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
                     txtPreco.ReadOnly = true;
                     txtAluno.ReadOnly = true;
@@ -90,7 +90,7 @@ namespace aula13_banco
             }
             else
             {
-                MessageBox.Show("Insira/Consulte os dados!");
+                MessageBox.Show("Insira/Consulte os dados!","Atenção!",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 
@@ -107,14 +107,6 @@ namespace aula13_banco
                 MySqlDataReader le = m.consultarModalidade();
                 if (le.Read())
                 {
-                    if (opM == 1)
-                    {
-                        comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
-                        txtPreco.ReadOnly = false;
-                        txtAluno.ReadOnly = false;
-                        txtAula.ReadOnly = false;
-                        checkBox1.Enabled = true;
-                    }
                     cod = le["idEstudio_Modalidade"].ToString();
                     txtPreco.Text = le["precoModalidade"].ToString();
                     txtAluno.Text = le["qtdeAluno"].ToString();
@@ -127,14 +119,37 @@ namespace aula13_banco
                     {
                         checkBox1.Checked = false;
                     }
-                    if (opM == 1)
+                    if (opM == 2)
                     {
-                        button2.Enabled = false;
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Você deseja atualizar os dados da modalidade?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes && opM == 1)
+                        {
+                            if (opM == 1)
+                            {
+                                comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
+                                txtPreco.ReadOnly = false;
+                                txtAluno.ReadOnly = false;
+                                txtAula.ReadOnly = false;
+                                checkBox1.Enabled = true;
+                                button2.Enabled = false;
+                                button1.Enabled = true;
+                            }
+                        }
+                        else
+                        {
+                            if (opM == 1)
+                            {
+                                button2.Enabled = false;
+                                button1.Enabled = false;
+                            }
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Id não encontrado");
+                    MessageBox.Show("Id não encontrado","Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 DAO_Conexao.con.Close();
             }

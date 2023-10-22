@@ -47,7 +47,7 @@ namespace aula13_banco
 
             if (aluno.atualizarAluno())
             {
-                MessageBox.Show("Aluno atualizado!");
+                MessageBox.Show("Aluno atualizado!", "Sucesso", MessageBoxButtons.OK);
                 txtCpf.Text = "";
                 txtNome.Text= "";
                 txtRua.Text= "";
@@ -75,7 +75,7 @@ namespace aula13_banco
             }
             else
             {
-                MessageBox.Show("Erro na atualizção!");
+                MessageBox.Show("Erro na atualizção!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -88,7 +88,7 @@ namespace aula13_banco
                 MySqlDataReader r = aluno.consultarAluno2();
                 if (r.Read())
                 {
-                    MessageBox.Show("Aluno encontrado!");
+                    MessageBox.Show("Aluno encontrado!", "Sucesso", MessageBoxButtons.OK);
                     txtNome.Text = r["nomeAluno"].ToString();
                     txtComplemento.Text = r["complementoAluno"].ToString();
                     txtBairro.Text = r["bairroAluno"].ToString();
@@ -127,7 +127,7 @@ namespace aula13_banco
                 }
                 else
                 {
-                    MessageBox.Show("Aluno não encontrado!");
+                    MessageBox.Show("Aluno não encontrado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 DAO_Conexao.con.Close();
             }

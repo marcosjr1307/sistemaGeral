@@ -21,7 +21,7 @@ namespace aula13_banco
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             if ((textBox1.Text == "") || (textBox2.Text == "") || (textBox3.Text == "") || (textBox4.Text == "")) {
-                MessageBox.Show("Preencha todos os campos!");
+                MessageBox.Show("Preencha todos os campos!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -51,11 +51,11 @@ namespace aula13_banco
                         textBox2.Text = "";
                         textBox3.Text = "";
                         textBox4.Text = "";
-                        MessageBox.Show("Cadastro realizado com sucesso!");
+                        MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
                     }
                     else
                     {
-                        MessageBox.Show("Erro no cadastro!");
+                        MessageBox.Show("Erro no cadastro!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

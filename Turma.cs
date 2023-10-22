@@ -155,7 +155,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select diasemanaTurma from Estudio_turma inner join " +
+                MySqlCommand consulta = new MySqlCommand("select diasemanaTurma,ativo from Estudio_turma inner join " +
                     "Estudio_modalidade on (Estudio_modalidade.idEstudio_Modalidade = Estudio_turma.idModalidade) " +
                     "where Estudio_modalidade.descricaoModalidade = '"+nome+"'",DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
@@ -177,7 +177,7 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select horaTurma from Estudio_turma inner join Estudio_modalidade " +
+                MySqlCommand consulta = new MySqlCommand("select horaTurma,ativo from Estudio_turma inner join Estudio_modalidade " +
                     "on(Estudio_modalidade.idEstudio_Modalidade=Estudio_turma.idModalidade) where " +
                     "Estudio_modalidade.descricaoModalidade='"+nomeM+"' and diasemanaTurma='"+sem+"'", DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();

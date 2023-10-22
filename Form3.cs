@@ -44,7 +44,7 @@ namespace aula13_banco
                 || (txtComplemento.Text == "") || (txtCep.Text == "") || (txtCidade.Text == "") || (txtEstado.Text == "")
                 || (txtTelefone.Text == "") || (txtEmail.Text == ""))
             {
-                MessageBox.Show("Preencha todos os campos!");
+                MessageBox.Show("Preencha todos os campos!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -53,7 +53,7 @@ namespace aula13_banco
 
                 if (aluno.cadastrarAluno())
                 {
-                    MessageBox.Show("Cadastro realizado com sucesso!");
+                    MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso!", MessageBoxButtons.OK);
                     txtCpf.Text = "";
                     txtNome.Text = "";
                     txtRua.Text = "";
@@ -80,7 +80,7 @@ namespace aula13_banco
                 }
                 else
                 {
-                    MessageBox.Show("Erro no cadastro!");
+                    MessageBox.Show("Erro no cadastro!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -90,29 +90,34 @@ namespace aula13_banco
 
             if (e.KeyChar == 13)
             {
-                Aluno aluno = new Aluno(txtCpf.Text);
-                if (aluno.consultarAluno())
+                Aluno aluno = new Aluno(txtCpf.Text.Replace(",", "."));
+                if (aluno.verificaCPF() == false)
                 {
-                    MessageBox.Show("Aluno já cadastrado!");
+                    MessageBox.Show("CPF inválido","Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                {
-                    MessageBox.Show("Aluno não cadastrado!");
-                    txtCpf.Enabled = false;
-                    txtNome.Enabled = true;
-                    txtRua.Enabled = true;
-                    txtNumero.Enabled = true;
-                    txtBairro.Enabled = true;
-                    txtComplemento.Enabled = true;
-                    txtCep.Enabled = true;
-                    txtCidade.Enabled = true;
-                    txtEstado.Enabled = true;
-                    txtTelefone.Enabled = true;
-                    txtEmail.Enabled = true;
-                    btnCadastro.Enabled = true;
-                    txtNome.Focus();
+                else {
+                    Aluno aluno2 = new Aluno(txtCpf.Text);
+                    if (aluno2.consultarAluno())
+                    {
+                        MessageBox.Show("Aluno já cadastrado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        txtCpf.Enabled = false;
+                        txtNome.Enabled = true;
+                        txtRua.Enabled = true;
+                        txtNumero.Enabled = true;
+                        txtBairro.Enabled = true;
+                        txtComplemento.Enabled = true;
+                        txtCep.Enabled = true;
+                        txtCidade.Enabled = true;
+                        txtEstado.Enabled = true;
+                        txtTelefone.Enabled = true;
+                        txtEmail.Enabled = true;
+                        btnCadastro.Enabled = true;
+                        txtNome.Focus();
+                    }
                 }
-                DAO_Conexao.con.Close();
             }
         }
 

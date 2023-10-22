@@ -44,10 +44,10 @@ namespace aula13_banco
                 txtDSemana.Text = "";
                 txtHora.Text = "";
                 txtQtdMaxAlunos.Text = "";
-                MessageBox.Show("Cadastro realizado com sucesso!");
+                MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
             }
             else
-                MessageBox.Show("Erro de cadastro!");
+                MessageBox.Show("Erro de cadastro!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
