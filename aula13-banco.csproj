@@ -68,6 +68,7 @@
     <Compile Include="CadastrarModalidade.Designer.cs">
       <DependentUpon>CadastrarModalidade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classe.cs" />
     <Compile Include="ConsultarModalidade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +124,12 @@
     <Compile Include="CadastrarTurma.Designer.cs">
       <DependentUpon>CadastrarTurma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Matricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matricula.Designer.cs">
+      <DependentUpon>Matricula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modalidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarTurma.resx">
       <DependentUpon>CadastrarTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matricula.resx">
+      <DependentUpon>Matricula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

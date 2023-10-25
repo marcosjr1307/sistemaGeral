@@ -285,7 +285,7 @@ namespace aula13_banco
             // 
             // btnFoto
             // 
-            this.btnFoto.Location = new System.Drawing.Point(573, 259);
+            this.btnFoto.Location = new System.Drawing.Point(584, 248);
             this.btnFoto.Name = "btnFoto";
             this.btnFoto.Size = new System.Drawing.Size(128, 23);
             this.btnFoto.TabIndex = 1;
@@ -294,7 +294,7 @@ namespace aula13_banco
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(573, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(584, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 199);
             this.pictureBox1.TabIndex = 2;
@@ -304,7 +304,7 @@ namespace aula13_banco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 327);
+            this.ClientSize = new System.Drawing.Size(731, 338);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnFoto);
             this.Controls.Add(this.groupBox1);

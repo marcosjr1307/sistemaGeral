@@ -10,7 +10,7 @@ namespace aula13_banco
 {
     class Turma
     {
-        private string professor, dia_semana, hora;
+        private string professor, dia_semana, hora, desc;
         private int modalidade,qtdMaxAluno,ativo;
 
 
@@ -111,6 +111,16 @@ namespace aula13_banco
             this.ativo = ativo;
         }
 
+        public Turma(string professor, string dia_semana, string hora, string desc, int modalidade, int qtdMaxAluno)
+        {
+            this.professor = professor;
+            this.dia_semana = dia_semana;
+            this.hora = hora;
+            this.desc = desc;
+            this.modalidade = modalidade;
+            this.qtdMaxAluno = qtdMaxAluno;
+        }
+
         public bool cadastrarTurma()
         {
             bool ready = false; 
@@ -118,7 +128,7 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand add = new MySqlCommand("insert into Estudio_turma (idModalidade,professorTurma, diasemanaTurma, horaTurma, nalunosmatriculadosTurma) " +
-                    "values (" + modalidade + ",'" + professor + "','" + dia_semana + "','" + hora + "'," + qtdMaxAluno + ")", DAO_Conexao.con);
+                    "values (" + modalidade + ",'" + professor + "','" + dia_semana + "','" + hora + "'," + qtdMaxAluno+")", DAO_Conexao.con);
                 add.ExecuteNonQuery();
                 ready = true;
             }
@@ -131,6 +141,26 @@ namespace aula13_banco
             }
 
             return ready;
+        }
+
+        public MySqlDataReader consultarTodasTurmas()
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_turma", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                //DAO_Conexao.con.Close();
+            }
+            return resultado;
         }
 
         public MySqlDataReader consultarTurma(int cod) //Consultar por código

@@ -165,5 +165,17 @@ namespace aula13_banco
             textBox1.Text = "restrito";
             textBox2.Text = "restrito";
         }
+
+        private void modalidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Matricula matricular = new Matricula();
+            matricular.MdiParent = this;
+            matricular.Show();
+        }
     }
 }

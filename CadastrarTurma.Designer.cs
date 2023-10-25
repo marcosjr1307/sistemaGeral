@@ -62,7 +62,7 @@ namespace aula13_banco
             this.groupBox1.Controls.Add(this.lblModal);
             this.groupBox1.Location = new System.Drawing.Point(72, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 259);
+            this.groupBox1.Size = new System.Drawing.Size(451, 269);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turma";
@@ -85,7 +85,7 @@ namespace aula13_banco
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(52, 212);
+            this.btnCadastrar.Location = new System.Drawing.Point(52, 228);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(380, 23);
             this.btnCadastrar.TabIndex = 8;
@@ -166,12 +166,12 @@ namespace aula13_banco
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Modalidade});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 305);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 312);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(568, 226);
+            this.dataGridView1.Size = new System.Drawing.Size(568, 219);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 

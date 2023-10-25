@@ -175,8 +175,28 @@ namespace aula13_banco
             return resultado;
         }
 
+        public MySqlDataReader consultarNomeModalidade(int cod) //consulta o nome da modalidade por cod
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select descricaoModalidade from Estudio_modalidade where idEstudio_Modalidade=" + cod, DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                //DAO_Conexao.con.Close();
+            }
+            return resultado;
+        }
 
-        
+
+
         public bool atualizarModalidade(int cod)
         {
             bool ready = false;

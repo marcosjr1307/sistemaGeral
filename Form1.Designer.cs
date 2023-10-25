@@ -55,6 +55,8 @@ namespace aula13_banco
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.classeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +66,8 @@ namespace aula13_banco
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivoToolStripMenuItem,
             this.modalidadeToolStripMenuItem,
-            this.turmaToolStripMenuItem});
+            this.turmaToolStripMenuItem,
+            this.classeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -133,6 +136,7 @@ namespace aula13_banco
             this.modalidadeToolStripMenuItem.Name = "modalidadeToolStripMenuItem";
             this.modalidadeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.modalidadeToolStripMenuItem.Text = "Modalidade";
+            this.modalidadeToolStripMenuItem.Click += new System.EventHandler(this.modalidadeToolStripMenuItem_Click);
             // 
             // cadastrarModalidadeToolStripMenuItem
             // 
@@ -168,28 +172,28 @@ namespace aula13_banco
             // cadastrarTurmaToolStripMenuItem
             // 
             this.cadastrarTurmaToolStripMenuItem.Name = "cadastrarTurmaToolStripMenuItem";
-            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarTurmaToolStripMenuItem.Text = "Cadastrar Turma";
             this.cadastrarTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTurmaToolStripMenuItem_Click);
             // 
             // ConsultarTurmaToolStripMenuItem
             // 
             this.ConsultarTurmaToolStripMenuItem.Name = "ConsultarTurmaToolStripMenuItem";
-            this.ConsultarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.ConsultarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ConsultarTurmaToolStripMenuItem.Text = "Consultar Turma";
             this.ConsultarTurmaToolStripMenuItem.Click += new System.EventHandler(this.ConsultarTurmaToolStripMenuItem_Click);
             // 
             // excluirTurmaToolStripMenuItem
             // 
             this.excluirTurmaToolStripMenuItem.Name = "excluirTurmaToolStripMenuItem";
-            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.excluirTurmaToolStripMenuItem.Text = "Excluir Turrma";
             this.excluirTurmaToolStripMenuItem.Click += new System.EventHandler(this.excluirTurmaToolStripMenuItem_Click);
             // 
             // atualizarTurmaToolStripMenuItem
             // 
             this.atualizarTurmaToolStripMenuItem.Name = "atualizarTurmaToolStripMenuItem";
-            this.atualizarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.atualizarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.atualizarTurmaToolStripMenuItem.Text = "Atualizar Turma";
             this.atualizarTurmaToolStripMenuItem.Click += new System.EventHandler(this.atualizarTurmaToolStripMenuItem_Click);
             // 
@@ -289,6 +293,21 @@ namespace aula13_banco
             this.radioButton2.UseVisualStyleBackColor = false;
             this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
             // 
+            // classeToolStripMenuItem
+            // 
+            this.classeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarToolStripMenuItem});
+            this.classeToolStripMenuItem.Name = "classeToolStripMenuItem";
+            this.classeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.classeToolStripMenuItem.Text = "Classe";
+            // 
+            // cadastrarToolStripMenuItem
+            // 
+            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarToolStripMenuItem.Text = "Cadastrar";
+            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,6 +360,8 @@ namespace aula13_banco
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ToolStripMenuItem classeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
     }
 }
 
