@@ -382,5 +382,21 @@ namespace aula13_banco
             }
             return exc;
         }
+
+        public MySqlDataReader consultarTodosAlunos()
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_aluno",DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultado;
+        }
     }
 }

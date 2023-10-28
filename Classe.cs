@@ -10,9 +10,9 @@ namespace aula13_banco
     class Classe
     {
         private int idTurma;
-        private int cpfAluno;
+        private string cpfAluno;
 
-        public Classe(int idTurma, int cpfAluno)
+        public Classe(int idTurma, string cpfAluno)
         {
             this.idTurma = idTurma;
             this.cpfAluno = cpfAluno;
@@ -24,14 +24,15 @@ namespace aula13_banco
         }
 
         public int IdTurma { get => idTurma; set => idTurma = value; }
-        public int CpfAluno { get => cpfAluno; set => cpfAluno = value; }
+        public string CpfAluno { get => cpfAluno; set => cpfAluno = value; }
 
         public int verificaQtdAluno()
         {
-            MySqlDataReader resultado = null;
+            MySqlDataReader resultado;
             int qtd=0;
             try
             {
+                DAO_Conexao.con.Open();
                 MySqlCommand consulta = new MySqlCommand("select count(cpfAluno) from Estudio_classe where idTurma="+idTurma, DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
                 while (resultado.Read())
@@ -43,8 +44,63 @@ namespace aula13_banco
             {
                 Console.WriteLine(e.ToString());
             }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
             return qtd;
         }
+
+        public bool verificaSeExiste()
+        {
+            MySqlDataReader resultado;
+            bool existe = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_classe where idTurma="+idTurma+ " and cpfAluno='"+cpfAluno+"'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+                if(resultado.HasRows)
+                {
+                    existe = true;
+                }
+                else
+                {
+                    existe = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return existe;
+        }
+
+        public bool cadastraClasse()
+        {
+            bool ready = false;
+            try{
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("Insert into Estudio_classe (idTurma,cpfAluno) values (" + idTurma + ",'" + cpfAluno + "')", DAO_Conexao.con);
+                consulta.ExecuteNonQuery();
+                ready = true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return ready;
+        }
+
+
 
     }
 }

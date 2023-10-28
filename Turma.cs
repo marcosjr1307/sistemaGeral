@@ -282,13 +282,13 @@ namespace aula13_banco
             return resultado;
         }
 
-        public MySqlDataReader consultarTurma06(int cod, string sem, string horaT) //Pega o ID a partir do , dia semana e hora
+        public MySqlDataReader consultarTurma06(string nomeProf, string sem, string horaT) //Pega o ID da turma a partir do nome do professor, dia da semana e hora
         {
             MySqlDataReader resultado = null;
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select idEstudio_Turma from Estudio_turma where idModalidade ="+cod+" and diasemanaTurma = '"+sem+"' and horaTurma = '"+horaT+"'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("select idEstudio_Turma from Estudio_turma where professorTurma ='" + nomeProf+"' and diasemanaTurma = '"+sem+"' and horaTurma = '"+horaT+"'", DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
             }
             catch (Exception ex)
