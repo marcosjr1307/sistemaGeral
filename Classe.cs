@@ -145,6 +145,22 @@ namespace aula13_banco
             return resultado;
         }
 
+        public MySqlDataReader consultaClasse01()
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select cpfAluno from Estudio_classe where idTurma =" + idTurma,DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return resultado;
+        }
+
 
 
     }

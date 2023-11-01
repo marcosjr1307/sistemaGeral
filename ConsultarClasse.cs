@@ -24,6 +24,8 @@ namespace aula13_banco
                 comboBox1.Items.Add(le["professorTurma"].ToString());
             }
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            DAO_Conexao.con.Close();
+            comboBox1.Items.Add("SEM FILTRO");
         }
 
         private void ConsultarClasse_Load(object sender, EventArgs e)
@@ -73,7 +75,35 @@ namespace aula13_banco
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string nomeProf = comboBox1.Text;
+            if (comboBox1.Text.Equals("SEM FILTRO"))
+            {
+                tblClasse.Rows.Clear();
+                addRegistros();
+            }
+            else
+            {
+                tblClasse.Rows.Clear();
+                string nomeProf = comboBox1.Text;
+                int idTurma = 0;
+                Turma t = new Turma();
+                idTurma = t.consultarTurma07(nomeProf);
+                Console.WriteLine("Nome professor: " + nomeProf);
+                Console.WriteLine("Código turma: " + idTurma);
+
+                Classe c = new Classe(idTurma);
+                MySqlDataReader le = c.consultaClasse01();
+                int i = 0;
+                while (le.Read())
+                {
+                    tblClasse.Rows.Add();
+                    tblClasse.Rows[i].Cells[0].Value = idTurma;
+                    tblClasse.Rows[i].Cells[1].Value = nomeProf;
+                    tblClasse.Rows[i].Cells[2].Value = le["cpfAluno"].ToString();
+                    i++;
+                }
+                DAO_Conexao.con.Close();
+            }
+
 
         }
     }
