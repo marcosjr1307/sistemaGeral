@@ -46,6 +46,8 @@ namespace aula13_banco
             this.ConsultarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atualizarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.classeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -55,8 +57,7 @@ namespace aula13_banco
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.classeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -197,6 +198,22 @@ namespace aula13_banco
             this.atualizarTurmaToolStripMenuItem.Text = "Atualizar Turma";
             this.atualizarTurmaToolStripMenuItem.Click += new System.EventHandler(this.atualizarTurmaToolStripMenuItem_Click);
             // 
+            // classeToolStripMenuItem
+            // 
+            this.classeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarToolStripMenuItem,
+            this.consultarClasseToolStripMenuItem});
+            this.classeToolStripMenuItem.Name = "classeToolStripMenuItem";
+            this.classeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.classeToolStripMenuItem.Text = "Classe";
+            // 
+            // cadastrarToolStripMenuItem
+            // 
+            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarToolStripMenuItem.Text = "Cadastrar Classe";
+            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
@@ -293,20 +310,12 @@ namespace aula13_banco
             this.radioButton2.UseVisualStyleBackColor = false;
             this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
             // 
-            // classeToolStripMenuItem
+            // consultarClasseToolStripMenuItem
             // 
-            this.classeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarToolStripMenuItem});
-            this.classeToolStripMenuItem.Name = "classeToolStripMenuItem";
-            this.classeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.classeToolStripMenuItem.Text = "Classe";
-            // 
-            // cadastrarToolStripMenuItem
-            // 
-            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarToolStripMenuItem.Text = "Cadastrar";
-            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
+            this.consultarClasseToolStripMenuItem.Name = "consultarClasseToolStripMenuItem";
+            this.consultarClasseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarClasseToolStripMenuItem.Text = "Consultar Classe";
+            this.consultarClasseToolStripMenuItem.Click += new System.EventHandler(this.consultarClasseToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -362,6 +371,7 @@ namespace aula13_banco
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.ToolStripMenuItem classeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarClasseToolStripMenuItem;
     }
 }
 

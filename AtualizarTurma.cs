@@ -16,8 +16,7 @@ namespace aula13_banco
         public AtualizarTurma()
         {
             InitializeComponent();
-            txtModal.DropDownStyle = ComboBoxStyle.DropDown
-                ;
+            txtModal.DropDownStyle = ComboBoxStyle.DropDownList;
             txtModal.Items.Clear();
             Modalidade m = new Modalidade();
             MySqlDataReader le = m.consultarModalidadesTurma();

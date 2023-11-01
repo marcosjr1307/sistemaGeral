@@ -66,5 +66,10 @@ namespace aula13_banco
             DAO_Conexao.con.Close();
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

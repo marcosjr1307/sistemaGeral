@@ -9,7 +9,7 @@ namespace aula13_banco
 {
     class Aluno
     {
-        
+
         private string cpf;
         private string nome;
         private string endereco;
@@ -24,7 +24,7 @@ namespace aula13_banco
         private byte[] foto;
         private int ativo;
 
-        public Aluno(string cpf, string nome, string endereco, string numero, string bairro, string complemento, string cep, string cidade, 
+        public Aluno(string cpf, string nome, string endereco, string numero, string bairro, string complemento, string cep, string cidade,
             string estado, string telefone, string email, byte[] foto)
         {
             setCpf(cpf);
@@ -347,9 +347,9 @@ namespace aula13_banco
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand insere = new MySqlCommand("insert into Estudio_aluno (CPFAluno,nomeAluno,ruaAluno,numeroAluno," +
-                    "bairroAluno,complementoAluno,CEPAluno,cidadeAluno,estadoAluno,telefoneAluno,emailAluno) values ('" + cpf + "','" + nome + "','" + endereco + "','" + numero + "','" + bairro + "','"
-                    + complemento + "','" + cep + "','" + cidade + "','" + estado + "','" + telefone + "','" + email + "')", DAO_Conexao.con);
-                //insere.Parameters.AddWithValue("foto", this.foto);
+                    "bairroAluno,complementoAluno,CEPAluno,cidadeAluno,estadoAluno,telefoneAluno,emailAluno,fotoAluno) values ('" + cpf + "','" + nome + "','" + endereco + "','" + numero + "','" + bairro + "','"
+                    + complemento + "','" + cep + "','" + cidade + "','" + estado + "','" + telefone + "','" + email + "',@foto)", DAO_Conexao.con);
+                insere.Parameters.AddWithValue("foto", this.foto);
                 insere.ExecuteNonQuery();
                 cad = true;
             }

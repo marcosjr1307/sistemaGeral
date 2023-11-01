@@ -177,5 +177,12 @@ namespace aula13_banco
             matricular.MdiParent = this;
             matricular.Show();
         }
+
+        private void consultarClasseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarClasse consulta = new ConsultarClasse();
+            consulta.MdiParent = this;
+            consulta.Show();
+        }
     }
 }

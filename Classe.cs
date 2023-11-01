@@ -18,6 +18,10 @@ namespace aula13_banco
             this.cpfAluno = cpfAluno;
         }
 
+        public Classe()
+        {
+        }
+
         public Classe(int idTurma)
         {
             this.idTurma = idTurma;
@@ -80,6 +84,31 @@ namespace aula13_banco
             return existe;
         }
 
+        public int verificaQtdRegistros()
+        {
+            MySqlDataReader resultado = null;
+            int qtd = 0;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select count(*) from Estudio_classe",DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+                while (resultado.Read())
+                {
+                    qtd = int.Parse(resultado["count(*)"].ToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return qtd;
+        }
+
         public bool cadastraClasse()
         {
             bool ready = false;
@@ -98,6 +127,22 @@ namespace aula13_banco
                 DAO_Conexao.con.Close();
             }
             return ready;
+        }
+
+        public MySqlDataReader consultarClasse()
+        {
+            MySqlDataReader resultado=null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select*from Estudio_classe",DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultado;
         }
 
 

@@ -69,6 +69,12 @@
       <DependentUpon>CadastrarModalidade.cs</DependentUpon>
     </Compile>
     <Compile Include="Classe.cs" />
+    <Compile Include="ConsultarClasse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarClasse.Designer.cs">
+      <DependentUpon>ConsultarClasse.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarModalidade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastrarModalidade.resx">
       <DependentUpon>CadastrarModalidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarClasse.resx">
+      <DependentUpon>ConsultarClasse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultarModalidade.resx">
       <DependentUpon>ConsultarModalidade.cs</DependentUpon>
