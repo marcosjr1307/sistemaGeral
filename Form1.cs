@@ -184,5 +184,12 @@ namespace aula13_banco
             consulta.MdiParent = this;
             consulta.Show();
         }
+
+        private void excluirClasseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcluirClasse excluir = new ExcluirClasse();
+            excluir.MdiParent = this;
+            excluir.Show();
+        }
     }
 }

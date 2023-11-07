@@ -48,6 +48,7 @@ namespace aula13_banco
             this.atualizarTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -57,7 +58,7 @@ namespace aula13_banco
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.consultarClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excluirClasseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -173,28 +174,28 @@ namespace aula13_banco
             // cadastrarTurmaToolStripMenuItem
             // 
             this.cadastrarTurmaToolStripMenuItem.Name = "cadastrarTurmaToolStripMenuItem";
-            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.cadastrarTurmaToolStripMenuItem.Text = "Cadastrar Turma";
             this.cadastrarTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTurmaToolStripMenuItem_Click);
             // 
             // ConsultarTurmaToolStripMenuItem
             // 
             this.ConsultarTurmaToolStripMenuItem.Name = "ConsultarTurmaToolStripMenuItem";
-            this.ConsultarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ConsultarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.ConsultarTurmaToolStripMenuItem.Text = "Consultar Turma";
             this.ConsultarTurmaToolStripMenuItem.Click += new System.EventHandler(this.ConsultarTurmaToolStripMenuItem_Click);
             // 
             // excluirTurmaToolStripMenuItem
             // 
             this.excluirTurmaToolStripMenuItem.Name = "excluirTurmaToolStripMenuItem";
-            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excluirTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.excluirTurmaToolStripMenuItem.Text = "Excluir Turrma";
             this.excluirTurmaToolStripMenuItem.Click += new System.EventHandler(this.excluirTurmaToolStripMenuItem_Click);
             // 
             // atualizarTurmaToolStripMenuItem
             // 
             this.atualizarTurmaToolStripMenuItem.Name = "atualizarTurmaToolStripMenuItem";
-            this.atualizarTurmaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atualizarTurmaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.atualizarTurmaToolStripMenuItem.Text = "Atualizar Turma";
             this.atualizarTurmaToolStripMenuItem.Click += new System.EventHandler(this.atualizarTurmaToolStripMenuItem_Click);
             // 
@@ -202,7 +203,8 @@ namespace aula13_banco
             // 
             this.classeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarToolStripMenuItem,
-            this.consultarClasseToolStripMenuItem});
+            this.consultarClasseToolStripMenuItem,
+            this.excluirClasseToolStripMenuItem});
             this.classeToolStripMenuItem.Name = "classeToolStripMenuItem";
             this.classeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.classeToolStripMenuItem.Text = "Classe";
@@ -213,6 +215,13 @@ namespace aula13_banco
             this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarToolStripMenuItem.Text = "Cadastrar Classe";
             this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
+            // 
+            // consultarClasseToolStripMenuItem
+            // 
+            this.consultarClasseToolStripMenuItem.Name = "consultarClasseToolStripMenuItem";
+            this.consultarClasseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarClasseToolStripMenuItem.Text = "Consultar Classe";
+            this.consultarClasseToolStripMenuItem.Click += new System.EventHandler(this.consultarClasseToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -310,12 +319,12 @@ namespace aula13_banco
             this.radioButton2.UseVisualStyleBackColor = false;
             this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
             // 
-            // consultarClasseToolStripMenuItem
+            // excluirClasseToolStripMenuItem
             // 
-            this.consultarClasseToolStripMenuItem.Name = "consultarClasseToolStripMenuItem";
-            this.consultarClasseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consultarClasseToolStripMenuItem.Text = "Consultar Classe";
-            this.consultarClasseToolStripMenuItem.Click += new System.EventHandler(this.consultarClasseToolStripMenuItem_Click);
+            this.excluirClasseToolStripMenuItem.Name = "excluirClasseToolStripMenuItem";
+            this.excluirClasseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.excluirClasseToolStripMenuItem.Text = "Excluir Classe";
+            this.excluirClasseToolStripMenuItem.Click += new System.EventHandler(this.excluirClasseToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -372,6 +381,7 @@ namespace aula13_banco
         private System.Windows.Forms.ToolStripMenuItem classeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarClasseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excluirClasseToolStripMenuItem;
     }
 }
 

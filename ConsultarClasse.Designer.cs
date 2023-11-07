@@ -41,16 +41,16 @@ namespace aula13_banco
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 53);
+            this.label1.Location = new System.Drawing.Point(247, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(82, 26);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Filtrar:";
+            this.label1.Text = "Filtrar por \r\nnome professor:";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(310, 50);
+            this.comboBox1.Location = new System.Drawing.Point(342, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(257, 21);
             this.comboBox1.TabIndex = 3;
