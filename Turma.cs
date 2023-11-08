@@ -302,29 +302,21 @@ namespace aula13_banco
             return resultado;
         }
 
-        public int consultarTurma07(string nome)
+        public MySqlDataReader consultarTurma07(string nome)
         {
-            int codTurma=0;
             MySqlDataReader resultado = null;
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("select idEstudio_turma from Estudio_turma where professorTurma='" + nome + "'",DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("select * from Estudio_turma where nome='" + nome + "'",DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
-                while (resultado.Read())
-                {
-                    codTurma = int.Parse(resultado["idEstudio_turma"].ToString());
-                }
+
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-            return codTurma;
+            return resultado;
         }
 
 

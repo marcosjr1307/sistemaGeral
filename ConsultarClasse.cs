@@ -21,7 +21,7 @@ namespace aula13_banco
             MySqlDataReader le = t.consultarTodasTurmas();
             while (le.Read())
             {
-                comboBox1.Items.Add(le["professorTurma"].ToString());
+                comboBox1.Items.Add(le["nome"].ToString());
             }
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             DAO_Conexao.con.Close();
@@ -86,15 +86,15 @@ namespace aula13_banco
             else
             {
                 tblClasse.Rows.Clear();
-                string nomeProf = comboBox1.Text;
-                int idTurma = 0;
+                string nomeTurma = comboBox1.Text;
                 Turma t = new Turma();
-                idTurma = t.consultarTurma07(nomeProf);
-                MySqlDataReader result = t.consultarTurma(idTurma);
+                MySqlDataReader result = t.consultarTurma07(nomeTurma);
+                int idTurma=0;
                 while (result.Read())
                 {
                     txtSemana.Text = result["diasemanaTurma"].ToString();
                     txtHora.Text = result["horaTurma"].ToString();
+                    idTurma = int.Parse(result["idEstudio_Turma"].ToString());
                 }
                 DAO_Conexao.con.Close();
                 Classe c = new Classe(idTurma);
@@ -104,7 +104,7 @@ namespace aula13_banco
                 {
                     tblClasse.Rows.Add();
                     tblClasse.Rows[i].Cells[0].Value = idTurma;
-                    tblClasse.Rows[i].Cells[1].Value = nomeProf;
+                    tblClasse.Rows[i].Cells[1].Value = nomeTurma;
                     tblClasse.Rows[i].Cells[2].Value = le["cpfAluno"].ToString();
                     i++;
                 }

@@ -49,9 +49,9 @@ namespace aula13_banco
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(31, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 26);
+            this.label1.Size = new System.Drawing.Size(80, 26);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Filtrar por \r\nnome professor:";
+            this.label1.Text = "Filtrar por \r\nnome de turma:";
             // 
             // comboBox1
             // 
