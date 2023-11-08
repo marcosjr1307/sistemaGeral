@@ -79,6 +79,9 @@ namespace aula13_banco
             {
                 tblClasse.Rows.Clear();
                 addRegistros();
+                txtHora.Clear();
+                txtQtd.Clear();
+                txtSemana.Clear();
             }
             else
             {
@@ -87,9 +90,13 @@ namespace aula13_banco
                 int idTurma = 0;
                 Turma t = new Turma();
                 idTurma = t.consultarTurma07(nomeProf);
-                Console.WriteLine("Nome professor: " + nomeProf);
-                Console.WriteLine("Código turma: " + idTurma);
-
+                MySqlDataReader result = t.consultarTurma(idTurma);
+                while (result.Read())
+                {
+                    txtSemana.Text = result["diasemanaTurma"].ToString();
+                    txtHora.Text = result["horaTurma"].ToString();
+                }
+                DAO_Conexao.con.Close();
                 Classe c = new Classe(idTurma);
                 MySqlDataReader le = c.consultaClasse01();
                 int i = 0;
@@ -102,6 +109,7 @@ namespace aula13_banco
                     i++;
                 }
                 DAO_Conexao.con.Close();
+                txtQtd.Text = tblClasse.Rows.Count.ToString();
             }
 
 

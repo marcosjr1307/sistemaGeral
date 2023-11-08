@@ -29,7 +29,10 @@ namespace aula13_banco
                 if(backgroundColor != Color.LightGray)
                 {
                     addClasse();
-
+                    dataGridView1.Rows.Clear();
+                    dataGridView2.Rows.Clear();
+                    loadDataGridView1();
+                    loadDataGridView2();
                 }
                 else
                 {
@@ -53,7 +56,7 @@ namespace aula13_banco
         {
             if (dataGridView2.Rows[k].DefaultCellStyle.BackColor == Color.LightGray)
             {
-                dataGridView2.Rows[k].DefaultCellStyle.SelectionBackColor = Color.Gray;
+                dataGridView2.Rows[k].DefaultCellStyle.SelectionBackColor = Color.Black;
             }
         }
 

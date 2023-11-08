@@ -129,7 +129,7 @@ namespace aula13_banco
             return ready;
         }
 
-        public MySqlDataReader consultarClasse()
+        public MySqlDataReader consultarClasse() //Consulta todos
         {
             MySqlDataReader resultado=null;
             try
@@ -145,7 +145,7 @@ namespace aula13_banco
             return resultado;
         }
 
-        public MySqlDataReader consultaClasse01()
+        public MySqlDataReader consultaClasse01() //Consulta os alunos(cpf) a partir do código da turma
         {
             MySqlDataReader resultado = null;
             try
@@ -161,7 +161,57 @@ namespace aula13_banco
             return resultado;
         }
 
+        public MySqlDataReader consultarClasse02() //seleciona as salas sem repetir
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select distinct idTurma from Estudio_classe", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultado;
+        }
 
+        public MySqlDataReader consultarClasse03() //Consulta cod de matricula a partir do cod da sala e do cpf do aluno
+        {
+            MySqlDataReader resultado = null;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("select codMatricula from Estudio_classe where idTurma="+idTurma+" and cpfAluno='"+cpfAluno+"'", DAO_Conexao.con);
+                resultado = consulta.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return resultado;
+        }
 
+        public bool deleteMatricula(int codMatricula)
+        {
+            bool excluido = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand query = new MySqlCommand("delete from Estudio_classe where codMatricula=" + codMatricula, DAO_Conexao.con);
+                query.ExecuteNonQuery();
+                excluido = true;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return excluido;
+        }
     }
 }

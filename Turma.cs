@@ -309,7 +309,6 @@ namespace aula13_banco
             try
             {
                 DAO_Conexao.con.Open();
-                Console.WriteLine("NOME NA QUERRY: |" + nome + "|");
                 MySqlCommand consulta = new MySqlCommand("select idEstudio_turma from Estudio_turma where professorTurma='" + nome + "'",DAO_Conexao.con);
                 resultado = consulta.ExecuteReader();
                 while (resultado.Read())

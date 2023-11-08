@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace aula13_banco
             txtEmail.Enabled = false;
             btnAtualizar.Enabled = false;
             checkBox1.Enabled = false;
+            btnFoto.Enabled = false;
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -41,9 +43,10 @@ namespace aula13_banco
             {
                 ativo = 1;
             }
+            byte[] foto = ConverterFotoParaByteArray();
 
             Aluno aluno = new Aluno(txtCpf.Text.Replace(",", "."), txtNome.Text, txtRua.Text, txtNumero.Text, txtBairro.Text,
-                txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text, ativo);
+                txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text, ativo, foto);
 
             if (aluno.atualizarAluno())
             {
@@ -72,6 +75,7 @@ namespace aula13_banco
                 txtEmail.Enabled = false;
                 btnAtualizar.Enabled = false;
                 checkBox1.Enabled = false;
+                btnFoto.Enabled = false;
             }
             else
             {
@@ -88,6 +92,20 @@ namespace aula13_banco
                 MySqlDataReader r = aluno.consultarAluno2();
                 if (r.Read())
                 {
+                    try
+                    {
+                        string imagem = Convert.ToString(DateTime.Now.ToFileTime());
+                        byte[] bimage = (byte[])r["fotoAluno"];
+                        FileStream fs = new FileStream(imagem, FileMode.CreateNew, FileAccess.Write);
+                        fs.Write(bimage, 0, bimage.Length - 1);
+                        fs.Close();
+                        pictureBox1.Image = Image.FromFile(imagem);
+                    }
+                    catch
+                    {
+                        pictureBox1.Image = Image.FromFile("negado.png");
+                        MessageBox.Show("Erro ao carregar a foto");
+                    }
                     MessageBox.Show("Aluno encontrado!", "Sucesso", MessageBoxButtons.OK);
                     txtNome.Text = r["nomeAluno"].ToString();
                     txtComplemento.Text = r["complementoAluno"].ToString();
@@ -122,6 +140,7 @@ namespace aula13_banco
                         txtEmail.Enabled = true;
                         btnAtualizar.Enabled = true;
                         checkBox1.Enabled = true;
+                        btnFoto.Enabled = true;
                         txtNome.Focus();
                     }
                 }
@@ -146,7 +165,40 @@ namespace aula13_banco
             txtEstado.Text = "";
             txtTelefone.Text = "";
             txtEmail.Text = "";
+            pictureBox1.Image = null;
             checkBox1.Checked = false;
+        }
+
+        private void btnFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Abrir Foto";
+            dialog.Filter = "JPG (*.jpg)|*.jpg" + "|All files (*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox1.Image = new Bitmap(dialog.OpenFile());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Não foi possível carregar a foto: " + ex.Message);
+                }
+            }
+            dialog.Dispose();
+        }
+
+
+        public byte[] ConverterFotoParaByteArray()
+        {
+            using (var stream = new System.IO.MemoryStream())
+            {
+                pictureBox1.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                stream.Seek(0, System.IO.SeekOrigin.Begin);
+                byte[] bArray = new byte[stream.Length];
+                stream.Read(bArray, 0, System.Convert.ToInt32(stream.Length));
+                return bArray;
+            }
         }
     }
 }

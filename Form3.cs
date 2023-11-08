@@ -26,6 +26,7 @@ namespace aula13_banco
             txtTelefone.Enabled = false;
             txtEmail.Enabled = false;
             btnCadastro.Enabled = false;
+            btnFoto.Enabled = false;
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace aula13_banco
         {
             if ((txtCpf.Text == "") || (txtNome.Text == "") || (txtRua.Text == "") || (txtNumero.Text == "") || (txtBairro.Text == "")
                 || (txtComplemento.Text == "") || (txtCep.Text == "") || (txtCidade.Text == "") || (txtEstado.Text == "")
-                || (txtTelefone.Text == "") || (txtEmail.Text == ""))
+                || (txtTelefone.Text == "") || (txtEmail.Text == "") || (pictureBox1.Image == null))
             {
                 MessageBox.Show("Preencha todos os campos!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -50,7 +51,7 @@ namespace aula13_banco
             {
                 byte[] foto = ConverterFotoParaByteArray();
                 Aluno aluno = new Aluno(txtCpf.Text.Replace(",", "."), txtNome.Text, txtRua.Text, txtNumero.Text, txtBairro.Text,
-                    txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text);//+foto
+                    txtComplemento.Text, txtCep.Text.Replace(",", "."), txtCidade.Text, txtEstado.Text, txtTelefone.Text, txtEmail.Text,foto);//+foto
 
                 if (aluno.cadastrarAluno())
                 {
@@ -66,6 +67,7 @@ namespace aula13_banco
                     txtEstado.Text = "";
                     txtTelefone.Text = "";
                     txtEmail.Text = "";
+                    pictureBox1.Image = null;
                     btnCadastro.Enabled = false;
                     txtNome.Enabled = false;
                     txtRua.Enabled = false;
@@ -77,6 +79,7 @@ namespace aula13_banco
                     txtEstado.Enabled = false;
                     txtTelefone.Enabled = false;
                     txtEmail.Enabled = false;
+                    btnFoto.Enabled = false;
                     txtCpf.Enabled = true;
                 }
                 else
@@ -116,6 +119,7 @@ namespace aula13_banco
                         txtTelefone.Enabled = true;
                         txtEmail.Enabled = true;
                         btnCadastro.Enabled = true;
+                        btnFoto.Enabled = true;
                         txtNome.Focus();
                     }
                 }

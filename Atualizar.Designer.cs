@@ -32,6 +32,7 @@ namespace aula13_banco
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnFoto = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
@@ -55,7 +56,7 @@ namespace aula13_banco
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +77,7 @@ namespace aula13_banco
             this.btnFoto.TabIndex = 4;
             this.btnFoto.Text = "Escolher Foto";
             this.btnFoto.UseVisualStyleBackColor = true;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // groupBox1
             // 
@@ -109,6 +111,16 @@ namespace aula13_banco
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(402, 24);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(68, 17);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Excluído";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // txtTelefone
             // 
@@ -301,15 +313,9 @@ namespace aula13_banco
             this.label1.TabIndex = 0;
             this.label1.Text = "CPF:";
             // 
-            // checkBox1
+            // openFileDialog1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(402, 24);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(68, 17);
-            this.checkBox1.TabIndex = 23;
-            this.checkBox1.Text = "Excluído";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Atualizar
             // 
@@ -357,5 +363,6 @@ namespace aula13_banco
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

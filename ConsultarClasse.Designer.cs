@@ -35,13 +35,19 @@ namespace aula13_banco
             this.idTurma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpfAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSemana = new System.Windows.Forms.TextBox();
+            this.txtHora = new System.Windows.Forms.TextBox();
+            this.txtQtd = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblClasse)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 50);
+            this.label1.Location = new System.Drawing.Point(31, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 26);
             this.label1.TabIndex = 2;
@@ -50,7 +56,7 @@ namespace aula13_banco
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(342, 50);
+            this.comboBox1.Location = new System.Drawing.Point(138, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(257, 21);
             this.comboBox1.TabIndex = 3;
@@ -66,7 +72,7 @@ namespace aula13_banco
             this.idTurma,
             this.professor,
             this.cpfAluno});
-            this.tblClasse.Location = new System.Drawing.Point(250, 138);
+            this.tblClasse.Location = new System.Drawing.Point(329, 86);
             this.tblClasse.Name = "tblClasse";
             this.tblClasse.ReadOnly = true;
             this.tblClasse.Size = new System.Drawing.Size(349, 328);
@@ -90,11 +96,68 @@ namespace aula13_banco
             this.cpfAluno.Name = "cpfAluno";
             this.cpfAluno.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(99, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Dia Semana;";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(122, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Hora:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(37, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "QTD Alunos matriculados:";
+            // 
+            // txtSemana
+            // 
+            this.txtSemana.Enabled = false;
+            this.txtSemana.Location = new System.Drawing.Point(173, 106);
+            this.txtSemana.Name = "txtSemana";
+            this.txtSemana.Size = new System.Drawing.Size(100, 20);
+            this.txtSemana.TabIndex = 6;
+            // 
+            // txtHora
+            // 
+            this.txtHora.Enabled = false;
+            this.txtHora.Location = new System.Drawing.Point(173, 139);
+            this.txtHora.Name = "txtHora";
+            this.txtHora.Size = new System.Drawing.Size(100, 20);
+            this.txtHora.TabIndex = 6;
+            // 
+            // txtQtd
+            // 
+            this.txtQtd.Enabled = false;
+            this.txtQtd.Location = new System.Drawing.Point(173, 180);
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(100, 20);
+            this.txtQtd.TabIndex = 6;
+            // 
             // ConsultarClasse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 542);
+            this.Controls.Add(this.txtQtd);
+            this.Controls.Add(this.txtHora);
+            this.Controls.Add(this.txtSemana);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tblClasse);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
@@ -114,5 +177,11 @@ namespace aula13_banco
         private System.Windows.Forms.DataGridViewTextBoxColumn idTurma;
         private System.Windows.Forms.DataGridViewTextBoxColumn professor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpfAluno;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSemana;
+        private System.Windows.Forms.TextBox txtHora;
+        private System.Windows.Forms.TextBox txtQtd;
     }
 }
